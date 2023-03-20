@@ -1,0 +1,135 @@
+.q-left,
+.q-header,
+.q-layout,
+.q-bottom {
+    transition: all .3s;
+}
+
+.q-contail {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(179, 179, 179);
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+$width: 240px;
+$collapse-width: 60px;
+.q-header {
+    padding-left: $width;
+    width: 100%;
+    background-color: white;
+    box-sizing: border-box;
+}
+
+.q-left {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: $width;
+    height: 100%;
+    z-index: 1999;
+}
+
+.q-main {
+    position: absolute;
+    left: $width;
+    padding: 0;
+    padding-bottom: 20px;
+    width: calc(100% - $width);
+    height: calc(100% - 64px);
+    box-sizing: border-box;
+    overflow: hidden;
+    transition: all 0.5s;
+    background-color: #f0f2f5;
+    z-index: 2000;
+
+    &--fullscreen {
+        width: 100%;
+        left: 0;
+    }
+}
+
+.q--collapse {
+    .q-left,.q-logo {
+        width: $collapse-width;
+    }
+    .q-header {
+        padding-left: $collapse-width;
+    }
+    .q-main {
+        width: calc(100% - $collapse-width);
+        left: $collapse-width;
+    }
+}
+
+.q-view {
+    padding: 0 10px !important;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.q-footer {
+    margin: 0 auto;
+    padding: 0 22px;
+    width: 1300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .logo {
+        margin-left: -50px;
+    }
+
+    .copyright {
+        color: #666;
+        line-height: 1.5;
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    /* 登录页面 */
+    .login-left {
+        display: none !important;
+    }
+    .login-wrapper {
+        margin: 0 auto;
+        width: 96% !important;
+    }
+    .login-right {
+        width: 100% !important;
+    }
+
+    /* 主体 */
+    .q-tags {
+        display: none;
+    }
+    .q-left,
+    .q-logo {
+        left: -$width !important;
+    }
+    .q-main {
+        left: 0;
+        width: 100%;
+    }
+    .q-header {
+        padding-left: 15px;
+        margin-bottom: 15px;
+    }
+
+    .q--collapse {
+        .q-left,.q-logo {
+            width: $width;
+            left: 0;
+        }
+        .q-header {
+            padding: 0;
+            transform: translate3d(230px, 0, 0);
+        }
+        .q-main {
+            width: 100%;
+            left: $width;
+        }
+    }
+}

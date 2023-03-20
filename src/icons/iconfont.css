@@ -1,0 +1,115 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 3952595 */
+  src: url('iconfont.woff2?t=1678805368774') format('woff2'),
+       url('iconfont.woff?t=1678805368774') format('woff'),
+       url('iconfont.ttf?t=1678805368774') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-zhongyingwen:before {
+  content: "\e616";
+}
+
+.icon-inventory:before {
+  content: "\e602";
+}
+
+.icon-manage:before {
+  content: "\e603";
+}
+
+.icon-employee:before {
+  content: "\e604";
+}
+
+.icon-Storage2:before {
+  content: "\e605";
+}
+
+.icon-out:before {
+  content: "\e606";
+}
+
+.icon-logout:before {
+  content: "\e607";
+}
+
+.icon-role:before {
+  content: "\e608";
+}
+
+.icon-organization:before {
+  content: "\e609";
+}
+
+.icon-Storage:before {
+  content: "\e60a";
+}
+
+.icon-shop:before {
+  content: "\e60b";
+}
+
+.icon-vendor:before {
+  content: "\e60c";
+}
+
+.icon-procurement:before {
+  content: "\e60d";
+}
+
+.icon-refund:before {
+  content: "\e60e";
+}
+
+.icon-warehouse:before {
+  content: "\e60f";
+}
+
+.icon-a-Merchandiselibrary:before {
+  content: "\e610";
+}
+
+.icon-unit:before {
+  content: "\e611";
+}
+
+.icon-attribute:before {
+  content: "\e612";
+}
+
+.icon-channel:before {
+  content: "\e613";
+}
+
+.icon-order:before {
+  content: "\e614";
+}
+
+.icon-brand:before {
+  content: "\e615";
+}
+
+.icon-mima:before {
+  content: "\e632";
+}
+
+.icon-anquanzhongxin:before {
+  content: "\e895";
+}
+
+.icon-yuechi_o:before {
+  content: "\eb6a";
+}
+
+.icon-renyuan-05:before {
+  content: "\e630";
+}
+

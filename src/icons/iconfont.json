@@ -1,0 +1,184 @@
+{
+  "id": "3952595",
+  "name": "后台管理",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "7533292",
+      "name": "中英文",
+      "font_class": "zhongyingwen",
+      "unicode": "e616",
+      "unicode_decimal": 58902
+    },
+    {
+      "icon_id": "32814375",
+      "name": "inventory",
+      "font_class": "inventory",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "32814376",
+      "name": "manage",
+      "font_class": "manage",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "32814378",
+      "name": "employee",
+      "font_class": "employee",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    },
+    {
+      "icon_id": "32814379",
+      "name": "Storage2",
+      "font_class": "Storage2",
+      "unicode": "e605",
+      "unicode_decimal": 58885
+    },
+    {
+      "icon_id": "32814380",
+      "name": "out",
+      "font_class": "out",
+      "unicode": "e606",
+      "unicode_decimal": 58886
+    },
+    {
+      "icon_id": "32814382",
+      "name": "logout",
+      "font_class": "logout",
+      "unicode": "e607",
+      "unicode_decimal": 58887
+    },
+    {
+      "icon_id": "32814383",
+      "name": "role",
+      "font_class": "role",
+      "unicode": "e608",
+      "unicode_decimal": 58888
+    },
+    {
+      "icon_id": "32814384",
+      "name": "organization",
+      "font_class": "organization",
+      "unicode": "e609",
+      "unicode_decimal": 58889
+    },
+    {
+      "icon_id": "32814386",
+      "name": "Storage",
+      "font_class": "Storage",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    },
+    {
+      "icon_id": "32814388",
+      "name": "shop",
+      "font_class": "shop",
+      "unicode": "e60b",
+      "unicode_decimal": 58891
+    },
+    {
+      "icon_id": "32814389",
+      "name": "vendor",
+      "font_class": "vendor",
+      "unicode": "e60c",
+      "unicode_decimal": 58892
+    },
+    {
+      "icon_id": "32814391",
+      "name": "procurement",
+      "font_class": "procurement",
+      "unicode": "e60d",
+      "unicode_decimal": 58893
+    },
+    {
+      "icon_id": "32814392",
+      "name": "refund",
+      "font_class": "refund",
+      "unicode": "e60e",
+      "unicode_decimal": 58894
+    },
+    {
+      "icon_id": "32814393",
+      "name": "warehouse",
+      "font_class": "warehouse",
+      "unicode": "e60f",
+      "unicode_decimal": 58895
+    },
+    {
+      "icon_id": "32830504",
+      "name": "Merchandise library",
+      "font_class": "a-Merchandiselibrary",
+      "unicode": "e610",
+      "unicode_decimal": 58896
+    },
+    {
+      "icon_id": "32830769",
+      "name": "unit",
+      "font_class": "unit",
+      "unicode": "e611",
+      "unicode_decimal": 58897
+    },
+    {
+      "icon_id": "32830975",
+      "name": "attribute",
+      "font_class": "attribute",
+      "unicode": "e612",
+      "unicode_decimal": 58898
+    },
+    {
+      "icon_id": "32831256",
+      "name": "channel",
+      "font_class": "channel",
+      "unicode": "e613",
+      "unicode_decimal": 58899
+    },
+    {
+      "icon_id": "32831268",
+      "name": "order",
+      "font_class": "order",
+      "unicode": "e614",
+      "unicode_decimal": 58900
+    },
+    {
+      "icon_id": "32831557",
+      "name": "brand",
+      "font_class": "brand",
+      "unicode": "e615",
+      "unicode_decimal": 58901
+    },
+    {
+      "icon_id": "1435237",
+      "name": "密码",
+      "font_class": "mima",
+      "unicode": "e632",
+      "unicode_decimal": 58930
+    },
+    {
+      "icon_id": "2076279",
+      "name": " 安全中心",
+      "font_class": "anquanzhongxin",
+      "unicode": "e895",
+      "unicode_decimal": 59541
+    },
+    {
+      "icon_id": "5387834",
+      "name": "钥匙_o",
+      "font_class": "yuechi_o",
+      "unicode": "eb6a",
+      "unicode_decimal": 60266
+    },
+    {
+      "icon_id": "14915052",
+      "name": "人员",
+      "font_class": "renyuan-05",
+      "unicode": "e630",
+      "unicode_decimal": 58928
+    }
+  ]
+}
