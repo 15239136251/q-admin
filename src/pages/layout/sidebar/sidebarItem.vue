@@ -9,29 +9,44 @@
                 :class="{'is-active': vaildActive(item)}"
                 @click="open(item)"
             >
-                <i :class="item[iconKey]"></i>
-                <span slot="title" :alt="item[pathKey]">{{ item[labelKey] }}</span>
+                <el-icon v-if="item[iconKey].indexOf('icon-') != -1" >
+                    <i class="iconfont" :class="item[iconKey]"></i>
+                </el-icon>
+                <el-icon v-else>
+                    <component :is="item[iconKey]" />
+                </el-icon>
+                <span :alt="item[pathKey]">{{ item[labelKey] }}</span>
             </el-menu-item>
             <!-- 有下级菜单 -->
-            <el-submenu
+            <el-sub-menu
                 v-else-if="!validatenull(item[childrenKey])"
                 :index="item[pathKey]"
                 :key="item[labelKey]"
             >
-                <template slot="title">
-                    <i :class="item[iconKey]"></i>
-                    <span slot="title" :alt="item[pathKey]" :class="{'el-menu--display':collapse && first}">{{ item[labelKey] }}</span>
+                <template #title>
+                    <el-icon v-if="item[iconKey].indexOf('icon-') != -1" >
+                        <i class="iconfont" :class="item[iconKey]"></i>
+                    </el-icon>
+                    <el-icon v-else>
+                        <component :is="item[iconKey]" />
+                    </el-icon>
+                    <span :alt="item[pathKey]" :class="{'el-menu--display':collapse && first}">{{ item[labelKey] }}</span>
                 </template>
                 <template v-for="(child, cindex) in item[childrenKey]">
                     <el-menu-item 
-                        v-if="validatenull(item[childrenKey])"
-                        :index="item[pathKey]"
-                        :key="item[labelKey]"
-                        :class="{'is-active': vaildActive(item)}"
-                        @click="open(item)"
+                        v-if="validatenull(child[childrenKey])"
+                        :index="child[pathKey]"
+                        :key="child[labelKey]"
+                        :class="{'is-active': vaildActive(child)}"
+                        @click="open(child)"
                     >
-                        <i :class="item[iconKey]"></i>
-                        <span slot="title" :alt="item[pathKey]">{{ item[labelKey] }}</span>
+                        <el-icon v-if="child[iconKey].indexOf('icon-') != -1" >
+                            <i class="iconfont" :class="child[iconKey]"></i>
+                        </el-icon>
+                        <el-icon v-else>
+                            <component :is="child[iconKey]" />
+                        </el-icon>
+                        <span :alt="child[pathKey]">{{ child[labelKey] }}</span>
                     </el-menu-item>
                     <!-- 下级菜单 -->
                     <sidebar-item 
@@ -43,7 +58,7 @@
                         :collapse="collapse"
                     ></sidebar-item>
                 </template>
-            </el-submenu>
+            </el-sub-menu>
         </template>
     </div>
 </template>
@@ -58,7 +73,7 @@ interface Menu {
     path: string
     icon: string
     children?: Menu[]
-    isOpen: boolean
+    isOpen: number
 }
 const props = defineProps({
     menu: {
@@ -83,6 +98,7 @@ const props = defineProps({
 })
 
 const { menu, screen, first, collapse } = toRefs(props)
+console.log("🚀 ~ file: sidebarItem.vue:101 ~ menu:", menu)
 
 const labelKey = computed(() => {
     return props.props.label || config.propsDefault.label
@@ -111,6 +127,13 @@ const validIsOpen = (item: Menu) => {
 const open = (item: Menu) => {
     console.log("🚀 ~ file: siderbarItem.vue:84 ~ open ~ item:", item)
 }
+
+console.log(validatenull([{
+        label: '通知公告',
+        path: '/dashbord/brand',
+        icon: 'icon-brand',
+        isOpen: 1,
+    }]), 123)
 </script>
 
 <style scoped>
