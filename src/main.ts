@@ -35,11 +35,15 @@ if (import.meta.env.VITE_USER_NODE_ENV === 'mock') {
 }
 
 /* 全局注册组件 */
-import siderbarItem from './pages/layout/sidebar/siderbarItem.vue'
+import sidebarItem from './pages/layout/sidebar/sidebarItem.vue'
+
+/* 引入 Pinia */
+import { createPinia } from 'pinia'
+const pinia = createPinia()
 
 const app = createApp(App)
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
     app.component(key, component)
 }
-app.component(siderbarItem)
-app.use(router).use(i18n).use(ElementPlus).mount('#app')
+app.component('sidebarItem', sidebarItem)
+app.use(router).use(i18n).use(ElementPlus).use(pinia).mount('#app')
