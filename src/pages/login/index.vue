@@ -35,7 +35,7 @@
                             <input type="text" max="4" class="form-control"  v-model="codeval" aria-describedby="passwordHelpBlock" :placeholder="t('login.code')" />
                             <span class="input-group-text" id="basic-addon2" style="letter-spacing: 4px;" @click="changeCode">{{ code }}</span>
                         </div>
-                        <button type="button" class="btn btn-outline-primary mt-3 mb-3" style="width: 100%" @click="loginUser">{{ t('login.title') }}</button>
+                        <button type="button" class="btn btn-outline-primary mt-3 mb-3" style="width: 100%" @click="login">{{ t('login.title') }}</button>
                     </div>
                     <div class="login-menu mt-3">
                         <a href="#" @click.stop="">{{ t('login.userLogin') }}</a>
@@ -49,15 +49,19 @@
 </template>
 
 <script setup lang="ts">
-import { onDeactivated, ref } from 'vue';
+import { onDeactivated, ref } from 'vue'
 import { dateFormat } from '@/utils/date'
 import { getRandomString } from '@/utils/utils'
-import { ElMessage } from 'element-plus';
+import { ElMessage } from 'element-plus'
 import { Md5 } from 'ts-md5'
 import useLocale from '@/utils/useLocale'
-import REQ from '@/utils/http';
-import { setStore } from '@/utils/storage';
-import router from '@/router';
+import router from '@/router'
+import { useUserStore } from '@/store/user'
+
+const userStore = useUserStore()
+const { loginUser } = userStore
+
+/* 语言切换 */
 const { i18n: { t }, currentLocale, changeLoacle } = useLocale()
 
 const time = ref('')
@@ -69,7 +73,7 @@ const code = ref('')
 const changeCode = () => {
     code.value = getRandomString(4)
 }
-const loginUser = () => {
+const login = () => {
     if (code.value != codeval.value) return ElMessage.error(t('login.codeError'))
     if (username.value === '') return ElMessage.error(t('login.usernameError'))
     if (password.value === '') return ElMessage.error(t('login.passwordError'))
@@ -78,17 +82,7 @@ const loginUser = () => {
         password: Md5.hashStr(password.value),
         code: code.value
     }
-    REQ({
-        url: '/auth/login',
-        method: 'POST',
-        data
-    }).then((res: any) => {
-        console.log("🚀 ~ file: index.vue:76 ~ loginUser ~ res:", res)
-        setStore({
-            name: 'token',
-            type: 'seeion',
-            content: Md5.hashStr(new Date().getDate() + '')
-        })
+    loginUser(data).then(() => {
         router.push({path: '/'})
     })
 }
