@@ -1,5 +1,6 @@
 import axios from "./axios"
 import { ElMessage } from 'element-plus'
+import { getStore } from "./storage"
 
 const { VITE_BASE_URL = '' } = import.meta.env
 
@@ -72,8 +73,10 @@ const REQ = async (
     const { url, data, method, baseURL = VITE_BASE_URL } = reqData
     // 获取 token
     const timestamp = Date.now()
+    const token = getStore({name: 'token'}) || ''
     const headerToken = {
         'x-timestamp': timestamp,
+        'x-token': token
     }
     return new Promise((resolve, reject) => {
         axios({
