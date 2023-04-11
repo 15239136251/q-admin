@@ -4,34 +4,21 @@ import { getStore, setStore } from '@/utils/storage'
 import { validatenull } from '@/utils/valldate'
 import { defineStore } from 'pinia'
 import { Md5 } from 'ts-md5'
+import { useSidebarStore } from './sidebar'
 
-/* Menu */
-export interface Menu {
-    id: number
-    label: string
-    path: string
-    icon: string
-    meta?: any
-    parentId: number
-    children?: Menu[]
-    isOpen?: number
-}
+// 按钮组
+const { getMenus, getTopMenu } = useSidebarStore()
 
 export const useUserStore = defineStore('userStore', {
     state: () => {
         const roles: number[] = []
-        const menu: Menu[] = getStore({name: 'menu'}) || []
         const userinfo: any = getStore({name: 'userinfo'}) || {}
-        const menuId: number[] = getStore({name: 'menuId'}) || []
-        const menuAll: Menu[] = getStore({name: 'menuAll'}) || []
+        
         const token: string = getStore({name: 'token'}) || ''
         const refreshToken: string = getStore({name: 'refreshToken'}) || ''
         return {
             userinfo,
             roles,
-            menu,
-            menuId,
-            menuAll,
             token,
             refreshToken,
         }
@@ -43,18 +30,6 @@ export const useUserStore = defineStore('userStore', {
             }
             this.userinfo = userinfo
             setStore({ name: 'userinfo', content: this.userinfo })
-        },
-        SET_MENU(menu: Menu[]) {
-            this.menu = menu
-            setStore({ name: 'menu', content: this.menu })
-        },
-        SET_MENU_ID(menuId: number[]) {
-            this.menuId = menuId
-            setStore({ name: 'menuId', content: this.menuId })
-        },
-        SET_MENU_ALL(menuAll: Menu[]) {
-            this.menuAll = menuAll
-            setStore({ name: 'menuAll', content: this.menuAll })
         },
         SET_ROLES(roles: number[]) {
             this.roles = roles
@@ -75,12 +50,18 @@ export const useUserStore = defineStore('userStore', {
                     this.SET_TOKEN(res.token)
                     this.SET_REFRESH_TOKEN(res.refreshToken)
                     this.SET_USER_INFO(res)
+                    this.loginInit()
                     resolve(null)
                 }).catch(error => {
                     reject(error)
                 })
             })
         },
+        // 登录后的操作
+        loginInit() {
+            getMenus()
+            getTopMenu()
+        }
     },
     getters: {
 

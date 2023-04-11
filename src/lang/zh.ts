@@ -25,4 +25,7 @@ export default {
         passwordError: '密码不得为空',
         loginError: '账号密码错误！'
     },
+    navbar: {
+        lock: '锁屏'
+    }
 }

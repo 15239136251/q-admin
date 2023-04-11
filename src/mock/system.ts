@@ -1,7 +1,7 @@
 const system = [
     /* getTopMenu */
     {
-        url: '/api/q-system/menu/top-menu',
+        url: '/api/menu/top-menu',
         type: 'get',
         response: (options: any) => {
             console.log("🚀 ~ file: system.ts:6 ~ options:", options)
