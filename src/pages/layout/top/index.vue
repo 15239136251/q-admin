@@ -33,9 +33,9 @@
                 </span>
                 <template #dropdown>
                 <el-dropdown-menu>
-                    <el-dropdown-item>首页</el-dropdown-item>
+                    <el-dropdown-item @click="goHome">首页</el-dropdown-item>
                     <el-dropdown-item>个人信息</el-dropdown-item>
-                    <el-dropdown-item divided>退出登录</el-dropdown-item>
+                    <el-dropdown-item divided @click="logout">退出登录</el-dropdown-item>
                 </el-dropdown-menu>
                 </template>
             </el-dropdown>
@@ -47,9 +47,17 @@
 import topMenu from './top-menu.vue'
 import topSearch from './top-search.vue'
 import useLocale from '@/utils/useLocale'
+import { useUserStore } from '@/store/user'
+import router from '@/router';
+const showLock = true
 /* 语言切换 */
 const { i18n: { t } } = useLocale()
-const showLock = true
+const { logout } = useUserStore()
+const goHome = () => {
+    router.push({
+        path: '/dashbord/index'
+    })
+}
 </script>
 
 <style lang="scss" scoped>
