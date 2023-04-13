@@ -5,30 +5,26 @@
             class="el-menu-demo"
             mode="horizontal"
         >
-            <el-menu-item index="1">
-                <el-icon><Menu /></el-icon>
-                首页
+            <el-menu-item v-for="(menu, index) in topMenus" :key="menu.label + index"  :index="index">
+                <el-icon v-if="menu.icon.indexOf('icon-') != -1" >
+                    <i class="iconfont" :class="menu.icon"></i>
+                </el-icon>
+                <el-icon v-else>
+                    <component :is="menu.icon || 'Menu'" />
+                </el-icon>
+                {{ menu.label }}
             </el-menu-item>
-            <el-sub-menu index="2">
-            <template #title>Workspace</template>
-            <el-menu-item index="2-1">item one</el-menu-item>
-            <el-menu-item index="2-2">item two</el-menu-item>
-            <el-menu-item index="2-3">item three</el-menu-item>
-            <el-sub-menu index="2-4">
-                <template #title>item four</template>
-                <el-menu-item index="2-4-1">item one</el-menu-item>
-                <el-menu-item index="2-4-2">item two</el-menu-item>
-                <el-menu-item index="2-4-3">item three</el-menu-item>
-            </el-sub-menu>
-            </el-sub-menu>
-            <el-menu-item index="3" disabled>Info</el-menu-item>
-            <el-menu-item index="4">Orders</el-menu-item>
         </el-menu>
     </div>
 </template>
 
 <script setup lang="ts">
+import { toRefs } from 'vue'
+import { useSidebarStore } from '@/store/sidebar'
 
+const sidebarStore = useSidebarStore()
+
+const { topMenus } = toRefs(sidebarStore)
 </script>
 
 <style scoped>
