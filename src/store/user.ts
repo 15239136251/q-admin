@@ -1,6 +1,7 @@
 /* user.ts */
 import { loginUser } from '@/api/login'
-import { getStore, setStore } from '@/utils/storage'
+import router from '@/router'
+import { getStore, removeStore, setStore } from '@/utils/storage'
 import { validatenull } from '@/utils/valldate'
 import { defineStore } from 'pinia'
 import { Md5 } from 'ts-md5'
@@ -61,6 +62,13 @@ export const useUserStore = defineStore('userStore', {
         loginInit() {
             getMenus()
             getTopMenu()
+        },
+        /* 退出登录 */
+        logout() {
+            removeStore({ name: 'token' })
+            router.push({
+                path: '/login'
+            })
         }
     },
     getters: {
