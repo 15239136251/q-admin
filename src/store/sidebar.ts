@@ -3,6 +3,7 @@
 import { getStore, setStore } from "@/utils/storage";
 import { defineStore } from "pinia";
 import { getMenus, getTopMenu } from '@/api/system'
+import router from "@/router";
 
 export interface Menu {
     id: number
@@ -13,6 +14,7 @@ export interface Menu {
     parentId: number
     children?: Menu[]
     isOpen?: number
+    query?: any
 }
 
 export interface TopMenu {
@@ -21,6 +23,7 @@ export interface TopMenu {
     icon: string
     meta: any
     parentId: number
+    query?: any
 }
 
 export const useSidebarStore = defineStore('sidebarStore', {
@@ -60,14 +63,21 @@ export const useSidebarStore = defineStore('sidebarStore', {
             setStore({ name: 'menuAll', content: this.menuAll })
         },
 
+        goto(url: string) {
+            router.push(url)
+        },
+
         async getMenus() {
-            const result = await getMenus()
+            const result: any = await getMenus()
             console.log("🚀 ~ file: sidebar.ts:43 ~ getMenus ~ result:", result)
+            this.SET_MENUS(result)
         },
 
         async getTopMenu() {
-            const result = await getTopMenu()
+            const result: any = await getTopMenu()
             console.log("🚀 ~ file: sidebar.ts:48 ~ getTopMenu ~ result:", result)
+            this.SET_TOP_MENUS(result)
+
         }
         
     },

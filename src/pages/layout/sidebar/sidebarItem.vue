@@ -64,17 +64,12 @@
 </template>
 
 <script setup lang="ts" name="sidebarItem">
+import router from '@/router';
+import { Menu } from '@/store/sidebar';
 import { validatenull } from '@/utils/valldate';
 import { defineProps, computed, toRefs, ComputedRef } from 'vue'
 import config from './config'
 
-interface Menu {
-    label: string
-    path: string
-    icon: string
-    children?: Menu[]
-    isOpen: number
-}
 const props = defineProps({
     menu: {
         type: Array<Menu>
@@ -126,6 +121,10 @@ const validIsOpen = (item: Menu) => {
 }
 const open = (item: Menu) => {
     console.log("🚀 ~ file: siderbarItem.vue:84 ~ open ~ item:", item)
+    router.push({
+        path: item.path,
+        query: item.query
+    })
 }
 
 console.log(validatenull([{
