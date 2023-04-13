@@ -2,7 +2,8 @@
     <div class="q-contail" :class="{'q--collapse': isCollapse}">
         <!-- 顶部导航栏 -->
         <div class="q-header">
-            <top ref="top" />
+            <!-- top -->
+            <top />
         </div>
         <!-- 中间区域 -->
         <div class="q-layout">
