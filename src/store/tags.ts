@@ -45,7 +45,8 @@ export const useTagsStore = defineStore('tagsStore', {
         return {
             taglist: taglist,
             tag: tag,
-            tagWel: tagWel
+            tagWel: tagWel,
+            showTag: true
         }
     }, 
     actions: {
