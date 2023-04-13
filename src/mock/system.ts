@@ -8,7 +8,7 @@ const system = [
             const topMenu = [{
                 label: "首页",
                 path: "/wel/index",
-                icon: 'el-icon-menu',
+                icon: 'Menu',
                 meta: {
                     i18n: 'dashboard',
                 },
@@ -16,7 +16,7 @@ const system = [
             },
             {
                 label: "bladex官网",
-                icon: 'el-icon-document',
+                icon: 'Menu',
                 meta: {
                     i18n: 'website',
                 },
@@ -25,7 +25,7 @@ const system = [
             },
             {
                 label: "avuex官网",
-                icon: 'el-icon-document',
+                icon: 'Menu',
                 meta: {
                     i18n: 'avuexwebsite',
                 },
@@ -34,14 +34,18 @@ const system = [
             },
             {
                 label: "测试",
-                icon: 'el-icon-document',
+                icon: 'Menu',
                 path: "/test/index",
                 meta: {
                     i18n: 'test',
                 },
                 parentId: 3
             }]
-            return topMenu
+            return {
+                code: 100,
+                message: '查询成功！',
+                data: topMenu
+            }
         }
     },
     /* getRoutes */
@@ -63,19 +67,23 @@ const system = [
                     id: 11,
                     label: '通知公告',
                     path: '/dashbord/brand',
-                    icon: 'icon-brand',
+                    icon: 'Menu',
                     isOpen: 1,
                     parentId: 1,
                 }]
             }, {
                 id: 2,
                 label: '测试',
-                path: '/test',
-                icon: 'location',
+                path: '/test/test',
+                icon: 'Location',
                 isOpen: 1,
                 parentId: 0
             }]
-            return menu
+            return {
+                code: 100,
+                message: '查询成功！',
+                data: menu
+            }
         }
     },
 ]

@@ -1,7 +1,8 @@
 import Mock from 'mockjs'
 import login from './login'
+import system from './system'
 
-const mocks: any[] = [...login]
+const mocks: any[] = [...login, ...system]
 
 // 设置延迟时间
 Mock.setup({
