@@ -78,6 +78,13 @@ const system = [
                 icon: 'Location',
                 isOpen: 1,
                 parentId: 0
+            }, {
+                id: 3,
+                label: 'SQL之父',
+                path: '/common/sql-father',
+                icon: 'Location',
+                isOpen: 1,
+                parentId: 0
             }]
             return {
                 code: 100,

@@ -8,22 +8,12 @@ const pages: Array<RouteRecordRaw> = [
         component: () => import('@/pages/login/index.vue')
     },
     {
-        path: '/404',
-        name: '404',
-        component: () => import( '@/components/error-page/404.vue'),
-        meta: {
-            keepAlive: true,
-            isTab: false,
-            isAuth: false
-        }
-    },
-    {
         path: '/',
         redirect: '/dashbord'
     },
     {
         path: '/:pathMatch(.*)*',
-        redirect: '/404'
+        redirect: '/dashbord/404'
     }
 ]
 
