@@ -5,7 +5,7 @@
             class="el-menu-demo"
             mode="horizontal"
         >
-            <el-menu-item v-for="(menu, index) in topMenus" :key="menu.label + index"  :index="index">
+            <el-menu-item v-for="(menu, index) in topMenus" :key="menu.label + index"  :index="index" @click="open(menu)">
                 <el-icon v-if="menu.icon.indexOf('icon-') != -1" >
                     <i class="iconfont" :class="menu.icon"></i>
                 </el-icon>
@@ -19,12 +19,22 @@
 </template>
 
 <script setup lang="ts">
+import router from '@/router';
+import { Menu } from '@/store/sidebar';
 import { toRefs } from 'vue'
 import { useSidebarStore } from '@/store/sidebar'
 
 const sidebarStore = useSidebarStore()
 
 const { topMenus } = toRefs(sidebarStore)
+
+const open = (item: Menu) => {
+    console.log("🚀 ~ file: siderbarItem.vue:84 ~ open ~ item:", item)
+    router.push({
+        path: item.path,
+        query: item.query
+    })
+}
 </script>
 
 <style scoped>

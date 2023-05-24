@@ -41,9 +41,21 @@ import sidebarItem from './pages/layout/sidebar/sidebarItem.vue'
 import { createPinia } from 'pinia'
 const pinia = createPinia()
 
+/* 引入自定义指令 */
+import directives from './directives'
+
+// 引入 WindiCss
+import 'virtual:windi.css'
+
 const app = createApp(App)
+
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
     app.component(key, component)
 }
+app.use(router).use(i18n).use(ElementPlus).use(pinia)
+
+// 注册自定义指令
+directives(app)
+
 app.component('sidebarItem', sidebarItem)
-app.use(router).use(i18n).use(ElementPlus).use(pinia).mount('#app')
+app.mount('#app')

@@ -15,7 +15,7 @@
                 <el-icon v-else>
                     <component :is="item[iconKey]" />
                 </el-icon>
-                <span :alt="item[pathKey]">{{ item[labelKey] }}</span>
+                <template #title>{{ item[labelKey] }}</template>
             </el-menu-item>
             <!-- 有下级菜单 -->
             <el-sub-menu
@@ -30,7 +30,7 @@
                     <el-icon v-else>
                         <component :is="item[iconKey]" />
                     </el-icon>
-                    <span :alt="item[pathKey]" :class="{'el-menu--display':collapse && first}">{{ item[labelKey] }}</span>
+                    <span>{{ item[labelKey] }}</span>
                 </template>
                 <template v-for="(child, cindex) in item[childrenKey]">
                     <el-menu-item 
@@ -46,7 +46,7 @@
                         <el-icon v-else>
                             <component :is="child[iconKey]" />
                         </el-icon>
-                        <span :alt="child[pathKey]">{{ child[labelKey] }}</span>
+                        <template #title>{{ child[labelKey] }}</template>
                     </el-menu-item>
                     <!-- 下级菜单 -->
                     <sidebar-item 
@@ -126,13 +126,6 @@ const open = (item: Menu) => {
         query: item.query
     })
 }
-
-console.log(validatenull([{
-        label: '通知公告',
-        path: '/dashbord/brand',
-        icon: 'icon-brand',
-        isOpen: 1,
-    }]), 123)
 </script>
 
 <style scoped>

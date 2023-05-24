@@ -9,11 +9,11 @@ const pages: Array<RouteRecordRaw> = [
     },
     {
         path: '/',
-        redirect: '/dashbord'
+        redirect: '/dashboard'
     },
     {
         path: '/:pathMatch(.*)*',
-        redirect: '/dashbord/404'
+        redirect: '/dashboard/404'
     }
 ]
 

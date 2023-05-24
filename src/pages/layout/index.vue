@@ -31,12 +31,14 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, toRefs } from 'vue';
 import top from './top/index.vue'
 import tags from './tags.vue'
 import sidebar from './sidebar/index.vue'
+import { useCommonStore } from '@/store/common'
 
-const isCollapse = ref(false)
+const commonStore = useCommonStore()
+const { isCollapse } = toRefs(commonStore)
 </script>
 
 <style scoped>

@@ -2,7 +2,7 @@ export default {
     key: 'qhb',
     tagWel: {
         label: '首页',
-        path: '/dashbord/index',
+        path: '/dashboard/index',
         params: {},
         query: {},
         close: false

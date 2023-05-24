@@ -1,12 +1,12 @@
 <template>
     <div class="q-logo">
         <transition name="fade">
-            <span v-if="keyCollapse" class="q-logo_subtitle" key="0">
+            <span v-if="isCollapse" class="q-logo_subtitle" key="0">
                 Q
             </span>
         </transition>
         <transition-group name="fade">
-            <template v-if="!keyCollapse">
+            <template v-if="!isCollapse">
                 <span class="q-logo_title" key="1">Qhb Admin </span>
             </template>
         </transition-group>
@@ -14,7 +14,11 @@
 </template>
 
 <script setup lang="ts">
-const keyCollapse = false
+import { toRefs } from 'vue'
+import { useCommonStore } from '@/store/common'
+
+const commonStore = useCommonStore()
+const { isCollapse } = toRefs(commonStore)
 </script>
 
 <style lang="scss">

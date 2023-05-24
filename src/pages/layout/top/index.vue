@@ -1,7 +1,7 @@
 <template>
     <div class="q-top">
         <div class="top-bar__left">
-            <el-icon><Fold /></el-icon>
+            <el-icon @click="SET_COLLAPSE"><Fold /></el-icon>
         </div>
         <div class="top-bar__title">
             <div class="top-bar__item">
@@ -35,6 +35,7 @@
                 <el-dropdown-menu>
                     <el-dropdown-item @click="goHome">首页</el-dropdown-item>
                     <el-dropdown-item>个人信息</el-dropdown-item>
+                    <el-dropdown-item @click="loginInit">重置缓存</el-dropdown-item>
                     <el-dropdown-item divided @click="logout">退出登录</el-dropdown-item>
                 </el-dropdown-menu>
                 </template>
@@ -48,14 +49,19 @@ import topMenu from './top-menu.vue'
 import topSearch from './top-search.vue'
 import useLocale from '@/utils/useLocale'
 import { useUserStore } from '@/store/user'
+import { useCommonStore } from '@/store/common'
 import router from '@/router';
+
+const commonStore = useCommonStore()
+const { SET_COLLAPSE } = commonStore
+
 const showLock = true
 /* 语言切换 */
 const { i18n: { t } } = useLocale()
-const { logout } = useUserStore()
+const { logout, loginInit } = useUserStore()
 const goHome = () => {
     router.push({
-        path: '/dashbord/index'
+        path: '/dashboard/index'
     })
 }
 </script>

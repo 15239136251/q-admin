@@ -1,91 +1,118 @@
 <template>
-    <div class="index content">
-        <!-- <iframe style="width: 100%; height: 100%;" src="http://quhaibin.cn" frameborder="0"></iframe> -->
-        <el-table :data="computedData" stripe style="width: 100%" border max-height="500">
-            <el-table-column type="selection" width="55" />
-            <el-table-column v-for="item in table" :key="item.id" :prop="item.prop" :label="item.label" :width="item.width">
-                <template #default="scope">
-                    {{ scope.row[item.prop] }}
-                </template>
-            </el-table-column>
-            <el-table-column label="操作">
-                <template #header>
-                    <el-input v-model="search" size="small" placeholder="Type to search" />
-                </template>
-                <template #default="scope">
-                    <el-button size="small" @click="handleEdit(scope.$index, scope.row)">Edit</el-button>
-                    <el-button size="small" type="danger" @click="handleDelete(scope.$index, scope.row)">Delete</el-button>
-                </template>
-            </el-table-column>
-        </el-table>
-    </div>
+  <div class="index">
+    <el-row gutter="20">
+      <el-col :span="24" class="mb-3">
+        <el-card>
+          <p class="flex justify-center align-center">
+            <img src="https://img.shields.io/badge/Release-V3.1.1-green.svg" alt="Downloads">
+            <img src="https://img.shields.io/badge/JDK-1.8+-green.svg" alt="Build Status">
+            <img src="https://img.shields.io/badge/Spring%20Cloud-2021-blue.svg" alt="Coverage Status">
+            <img src="https://img.shields.io/badge/Spring%20Boot-2.7-blue.svg" alt="Downloads">
+            <a target="_blank" href="https://bladex.vip">
+              <img src="https://img.shields.io/badge/Saber%20Author-Small%20Chill-ff69b4.svg" alt="Downloads">
+            </a>
+            <a target="_blank" href="https://bladex.vip">
+              <img src="https://img.shields.io/badge/Copyright%20-@BladeX-%23ff3f59.svg" alt="Downloads">
+            </a>
+          </p>
+        </el-card>
+      </el-col>
+      <el-col :span="16">
+        <el-card class="card text-gray-500">
+          <el-collapse v-model="activeNames" @change="handleChange">
+            <el-collapse-item :title="item.title" :name="index" v-for="(item, index) in leftInfo" :key="index">
+              <ol start="1" style="font-size: 12px;">
+                <li v-for="(content, index) in item.contents" :key="content + index">{{ index + 1 }}. {{ content }}</li>
+              </ol>
+            </el-collapse-item>
+          </el-collapse>
+        </el-card>
+      </el-col>
+      <el-col :span="8">
+        <el-card class="card text-gray-500">
+          <div>
+            <span>产品名称</span> 
+            <el-divider direction="vertical"></el-divider>
+            <el-tag type="info">后台管理模板</el-tag>
+          </div>
+          <el-divider content-position="right" class="my-3">
+            <el-icon><Star /></el-icon>
+          </el-divider>
+          <div>
+            <span>账号</span> 
+            <el-divider direction="vertical"></el-divider>
+            <el-tag type="success">管理员(admin)</el-tag>
+            <el-divider direction="vertical"></el-divider>
+            <el-tag type="info">测试人员(test)</el-tag>
+            <el-divider direction="vertical"></el-divider>
+            <el-tag type="warning">游客(youke)</el-tag>
+          </div>
+          <el-divider content-position="right" class="my-3">
+            <el-icon><Star /></el-icon>
+          </el-divider>
+          <div>
+            <span>项目地址</span> 
+            <el-divider direction="vertical"></el-divider>
+            <a href="https://github.com/15239136251/q-admin/tree/master" target="_blank">https://github.com/15239136251/q-admin</a>
+          </div>
+          <el-divider content-position="right" class="my-3">
+            <el-icon><Star /></el-icon>
+          </el-divider>
+          <div>
+            <span>博客地址</span> 
+            <el-divider direction="vertical"></el-divider>
+            <a href="https://quhaibin.cn/home/index" target="_blank">https://quhaibin.cn</a>
+          </div>
+        </el-card>
+        <el-card class="mt-3" v-if="updatelogs.length">
+          <el-collapse v-model="logsActiveNames">
+            <el-collapse-item :title="item.title" :name="index" v-for="(item, index) in updatelogs" :key="index">
+              <ol start="1" style="font-size: 12px;">
+                <li v-for="(content, index) in item.contents" :key="content + index">{{ index + 1 }}. {{ content }}</li>
+              </ol>
+            </el-collapse-item>
+          </el-collapse>
+        </el-card>
+      </el-col>
+    </el-row>
+  </div>
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue';
-
-const table = ref([{
-    id: 1,
-    label: 'ID',
-    prop: 'id',
-    width: 50
+import { ref } from 'vue'
+const activeNames = ref([0, 1])
+const leftInfo = ref([{
+  title: '欢迎使用 Q admin',
+  contents: [
+    '首页布局方便参考了saber'
+  ]
 }, {
-    id: 2,
-    label: '名称',
-    prop: 'name',
-    width: 200
-}, {
-    id: 3,
-    label: '编码',
-    prop: 'code',
-    width: 200
-}, {
-    id: 4,
-    label: '可用',
-    prop: 'is_active',
-    width: 180
+  title: '什么是 Q admin',
+  contents: [
+    'Q admin 是一个后台管理页面模板。',
+    '属于一个SPA项目。'
+  ]
 }])
-const data: any = ref([{
-    id: 1,
-    name: '名称1',
-    code: '编码1',
-    show: true,
-    is_active: 'Y'
+
+const logsActiveNames = ref([0])
+const updatelogs = ref([{
+  title: '1.0.0 TEST发布',
+  contents: [
+    '[初始化]修改首页'
+  ]
 }])
-const search = ref('')
 
-const computedData = computed(() => {
-    return data.value.filter((item: any) => (item.name.indexOf(search.value) !== -1 || item.code.indexOf(search.value) !== -1))
-})
-
-const handleEdit = (index: number, row: any) => {
-  console.log(index, row)
+const handleChange = (val: string[]) => {
+  console.log(val)
 }
-const handleDelete = (index: number, row: any) => {
-  console.log(index, row)
-}
-const init = () => {
-    const num = 30
-    for (let i = 2; i <= num; i++) {
-        data.value.push({
-            id: i,
-            name: '名称' + i,
-            code: '编码' + i,
-            show: true,
-            is_active: i % 2 === 0 ? 'Y' : 'N'
-        })
-    }
-}
-
-
-init()
 </script>
 
 <style lang="scss" scoped>
-.content {
-    background-color: #fff;
-    height: 100%;
-    width: 100%;
-    // overflow: auto;
+.card {
+  font-size: 14px;
+
+  a {
+    font-size: 12px;
+  }
 }
 </style>

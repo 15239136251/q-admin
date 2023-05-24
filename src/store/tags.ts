@@ -82,6 +82,8 @@ export const useTagsStore = defineStore('tagsStore', {
         }
     },
     getters: {
-
+        menuActive(): string {
+            return this.tag.path
+        }
     }
 })
