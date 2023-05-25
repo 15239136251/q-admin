@@ -42,12 +42,12 @@ const { isCollapse } = toRefs(commonStore)
     width: 240px;
     height: 64px;
     line-height: 64px;
-    background-color: #20222a;
+    background-color: var(--qp-logo-bg-color);
     font-size: 20px;
     overflow: hidden;
     box-sizing: border-box;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15);
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--qp-logo-text-color);
     z-index: 1998;
 
     &_title {
@@ -62,6 +62,6 @@ const { isCollapse } = toRefs(commonStore)
         text-align: center;
         font-size: 18px;
         font-weight: bold;
-        color: #fff;
+        color: var(--qp-logo-text-color, #fff);
     }
 }</style>

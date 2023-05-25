@@ -36,9 +36,13 @@ import top from './top/index.vue'
 import tags from './tags.vue'
 import sidebar from './sidebar/index.vue'
 import { useCommonStore } from '@/store/common'
+import useColors from '@/utils/useColors';
 
 const commonStore = useCommonStore()
 const { isCollapse } = toRefs(commonStore)
+
+const { init } = useColors()
+init()
 </script>
 
 <style scoped>

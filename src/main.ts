@@ -13,6 +13,8 @@ import "bootstrap";
 import ElementPlus from 'element-plus'
 import 'element-plus/theme-chalk/index.css'
 import 'element-plus/theme-chalk/display.css'
+// 引入暗黑模式
+import 'element-plus/theme-chalk/dark/css-vars.css'
 /* 引入ElementPlus/icons-vue */
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 
