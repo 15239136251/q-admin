@@ -53,7 +53,7 @@
           <div>
             <span>项目地址</span> 
             <el-divider direction="vertical"></el-divider>
-            <a href="https://github.com/15239136251/q-admin/tree/master" target="_blank">https://github.com/15239136251/q-admin</a>
+            <el-link href="https://github.com/15239136251/q-admin/tree/master" target="_blank">https://github.com/15239136251/q-admin</el-link>
           </div>
           <el-divider content-position="right" class="my-3">
             <el-icon><Star /></el-icon>
@@ -61,7 +61,7 @@
           <div>
             <span>博客地址</span> 
             <el-divider direction="vertical"></el-divider>
-            <a href="https://quhaibin.cn/home/index" target="_blank">https://quhaibin.cn</a>
+            <el-link href="https://quhaibin.cn/home/index" target="_blank">https://quhaibin.cn</el-link>
           </div>
         </el-card>
         <el-card class="mt-3" v-if="updatelogs.length">
