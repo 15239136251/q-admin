@@ -68,10 +68,17 @@ const system = [
                 },
                 parentId: 0,
                 children: [{
-                    id: 11,
+                    id: 100,
+                    label: '仪表盘',
+                    path: '/dashboard/base',
+                    icon: 'Menu',
+                    isOpen: 1,
+                    parentId: 1,
+                }, {
+                    id: 101,
                     label: '通知公告',
                     path: '/dashboard/brand',
-                    icon: 'Menu',
+                    icon: 'Grid',
                     isOpen: 1,
                     parentId: 1,
                 }]
@@ -100,7 +107,7 @@ const system = [
                 },
                 parentId: 0,
                 children: [{
-                    id: 51,
+                    id: 501,
                     label: '表格',
                     path: '/components/table',
                     icon: 'Menu',

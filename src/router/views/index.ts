@@ -14,6 +14,11 @@ const views: Array<RouteRecordRaw> = [
             meta: {},
             component: () => import('@/views/index/index.vue')
         }, {
+            path: 'base',
+            name: '仪表盘',
+            meta: {},
+            component: () => import('@/views/index/base.vue')
+        }, {
             path: 'brand',
             name: '通知公告',
             meta: {},
