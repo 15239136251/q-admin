@@ -1,5 +1,5 @@
 <template>
-  <div class="my-3">
+  <div class="">
     <el-row gutter="20" class="font-size-base">
       <el-col :lg="6" :md="12" :xs="24" class="mb-3">
         <el-card class="rounded-lg bg-blue-600 text-white cursor-pointer">
