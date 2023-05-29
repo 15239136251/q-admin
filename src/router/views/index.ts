@@ -58,6 +58,31 @@ const views: Array<RouteRecordRaw> = [
             meta: { title: '表格' },
             component: () => import('@/views/components/table.vue')
         }]
+    },
+    {
+        path: '/list',
+        name: '列表页',
+        meta: {
+            title: '列表页'
+        },
+        component: () => import('@/pages/layout/index.vue'),
+        redirect: '/list/base',
+        children: [{
+            path: 'base',
+            name: '基础列表',
+            meta: { title: '基础列表' },
+            component: () => import('@/views/list/base.vue')
+        }, {
+            path: 'card',
+            name: '卡片列表',
+            meta: { title: '卡片列表' },
+            component: () => import('@/views/list/card.vue')
+        }, {
+            path: 'filter',
+            name: '筛选列表',
+            meta: { title: '筛选列表' },
+            component: () => import('@/views/list/filter.vue')
+        }]
     }
 ]
 

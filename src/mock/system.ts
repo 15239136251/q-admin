@@ -105,7 +105,39 @@ const system = [
                     path: '/components/table',
                     icon: 'Menu',
                     isOpen: 1,
-                    parentId: 1,
+                    parentId: 5,
+                }]
+            }, {
+                id: 6,
+                label: '列表',
+                path: '/list/index',
+                icon: 'Location',
+                isOpen: 1,
+                meta: {
+                    i18n: 'list',
+                },
+                parentId: 0,
+                children: [{
+                    id: 601,
+                    label: '基础列表',
+                    path: '/list/base',
+                    icon: 'Menu',
+                    isOpen: 1,
+                    parentId: 6,
+                }, {
+                    id: 602,
+                    label: '卡片列表',
+                    path: '/list/card',
+                    icon: 'Menu',
+                    isOpen: 1,
+                    parentId: 6,
+                }, {
+                    id: 603,
+                    label: '筛选列表',
+                    path: '/list/filter',
+                    icon: 'Menu',
+                    isOpen: 1,
+                    parentId: 6,
                 }]
             }]
             return {
