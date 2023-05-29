@@ -19,11 +19,6 @@ const views: Array<RouteRecordRaw> = [
             meta: {},
             component: () => import('@/views/index/base.vue')
         }, {
-            path: 'brand',
-            name: '通知公告',
-            meta: {},
-            component: () => import('@/views/index/brand.vue')
-        }, {
             path: '404',
             name: '404',
             component: () => import( '@/components/error-page/404.vue'),

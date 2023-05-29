@@ -74,13 +74,6 @@ const system = [
                     icon: 'Menu',
                     isOpen: 1,
                     parentId: 1,
-                }, {
-                    id: 101,
-                    label: '通知公告',
-                    path: '/dashboard/brand',
-                    icon: 'Grid',
-                    isOpen: 1,
-                    parentId: 1,
                 }]
             }, {
                 id: 3,
