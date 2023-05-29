@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <el-row gutter="20" class="font-size-base">
+    <el-row gutter="20" class="font-size-md">
       <el-col :lg="6" :md="12" :xs="24" class="mb-3">
         <el-card class="rounded-lg bg-blue-600 text-white cursor-pointer">
           <div class="">总收入</div>
@@ -122,7 +122,7 @@
         </el-card>
       </el-col>
     </el-row>
-    <el-row gutter="20" class="font-size-base">
+    <el-row gutter="20" class="font-size-md">
       <el-col :lg="18" :md="24" class="mb-3">
         <el-card>
           <div ref="echarsDom1" style="width: 100%; height: 400px"></div>
@@ -134,7 +134,7 @@
         </el-card>
       </el-col>
     </el-row>
-    <el-row gutter="20" class="font-size-base">
+    <el-row gutter="20" class="font-size-md">
       <el-col :lg="12" :md="24" class="mb-3">
         <el-card>
           <div class="h-10 flex align-center justify-between">
@@ -201,7 +201,7 @@
             <el-col :lg="6" :md="24" class="md:mt-10">
               <el-row>
                 <el-col :lg="24" :md="12" style="height: 200px;">
-                  <div class="font-size-base">
+                  <div class="font-size-md">
                     <p class="text-gray-400">本月出库数量（件）</p>
                     <div class="font-size-5xl relative mt-2 text-black">
                       <div>
@@ -220,7 +220,7 @@
                   </div>
                 </el-col>
                 <el-col :lg="24" :md="12" style="height: 200px;">
-                  <div class="font-size-base">
+                  <div class="font-size-md">
                     <p class="text-gray-400">本月入库数量（件）</p>
                     <div class="font-size-5xl relative mt-2 text-black">
                       <div>
