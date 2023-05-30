@@ -2,8 +2,9 @@ import Mock from 'mockjs'
 import login from './login'
 import system from './system'
 import base from './base'
+import list from './list'
 
-const mocks: any[] = [...login, ...system, ...base]
+const mocks: any[] = [...login, ...system, ...base, ...list]
 
 // 设置延迟时间
 Mock.setup({
