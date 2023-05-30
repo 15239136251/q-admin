@@ -1,6 +1,6 @@
+import { Random } from "mockjs"
 
-const login = [
-  /* loginUser */
+const base = [
   {
     url: '/api/base/zr_0',
     type: 'post',
@@ -43,13 +43,13 @@ const login = [
               name: 'Email',
               type: 'line',
               stack: 'Total',
-              data: [120, 132, 101, 134, 400, 230, 210]
+              data: [Random.natural(50, 500), Random.natural(50, 500), Random.natural(50, 500), Random.natural(50, 500), Random.natural(50, 500), Random.natural(50, 500), Random.natural(50, 500)]
             },
             {
               name: 'Union Ads',
               type: 'line',
               stack: 'Total',
-              data: [220, 182, 191, 234, 290, 330, 310]
+              data: [Random.natural(50, 500), Random.natural(50, 500), Random.natural(50, 500), Random.natural(50, 500), Random.natural(50, 500), Random.natural(50, 500), Random.natural(50, 500)]
             }
           ]
         }
@@ -96,11 +96,11 @@ const login = [
                 show: false
               },
               data: [
-                { value: 1048, name: 'Search Engine' },
-                { value: 735, name: 'Direct' },
-                { value: 580, name: 'Email' },
-                { value: 484, name: 'Union Ads' },
-                { value: 300, name: 'Video Ads' }
+                { value: Random.natural(100, 1500), name: 'Search Engine' },
+                { value: Random.natural(100, 1500), name: 'Direct' },
+                { value: Random.natural(100, 1500), name: 'Email' },
+                { value: Random.natural(100, 1500), name: 'Union Ads' },
+                { value: Random.natural(100, 1500), name: 'Video Ads' }
               ]
             }
           ]
@@ -127,13 +127,13 @@ const login = [
           dataset: {
             source: [
               ['product', '出库', '入库'],
-              ['2023-05-21', 43, 85],
-              ['2023-05-22', 83, 73],
-              ['2023-05-23', 86, 65],
-              ['2023-05-24', 72, 43],
-              ['2023-05-25', 70, 2],
-              ['2023-05-26', 42, 63],
-              ['2023-05-27', 22, 52],
+              ['2023-05-21', Random.natural(400, 1500), Random.natural(400, 1500)],
+              ['2023-05-22', Random.natural(400, 1500), Random.natural(400, 1500)],
+              ['2023-05-23', Random.natural(400, 1500), Random.natural(400, 1500)],
+              ['2023-05-24', Random.natural(400, 1500), Random.natural(400, 1500)],
+              ['2023-05-25', Random.natural(400, 1500), Random.natural(400, 1500)],
+              ['2023-05-26', Random.natural(400, 1500), Random.natural(400, 1500)],
+              ['2023-05-27', Random.natural(400, 1500), Random.natural(400, 1500)],
             ]
           },
           xAxis: { type: 'category' },
@@ -147,4 +147,4 @@ const login = [
   }
 ]
 
-export default login
+export default base
