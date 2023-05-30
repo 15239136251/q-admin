@@ -63,13 +63,9 @@ const list = [
         const value = {
           id: i + 1,
           icon: icons[Random.integer(0, icons.length - 1)],
-          title: '',
-          description: '',
-          createTime: Random.datetime(),
-          createName: 'root',
-          modifyTime: Random.datetime(),
-          modifyName: 'root',
-          isActive: Random.boolean(),
+          title: Random.cparagraph(1),
+          description: Random.cparagraph(1, 3),
+          key: Random.cword('ABCDEFGHIJKLMNOPQRSTUVWXYZ'),
           status: Random.integer(0, 2)
         }
         data.push(value)

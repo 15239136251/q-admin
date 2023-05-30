@@ -5,3 +5,9 @@ export const getBaseList = (data: any) => REQ({
     method: 'POST',
     data: data
 })
+
+export const getCardList = (data: any) => REQ({
+  url: '/api/list/card',
+  method: 'POST',
+  data: data
+})
