@@ -138,22 +138,27 @@
       <el-col :lg="12" :md="24" class="mb-3">
         <el-card>
           <div class="h-10 flex align-center justify-between">
-            <div> <span class="font-size-xl font-bold">表格信息</span>（1）</div>
+            <div> <span class="font-size-xl font-bold">出库单</span>（件）</div>
             <div>
               <el-switch v-model="table1" active-text="本周" inactive-text="近三天" />
             </div>
           </div>
-          <el-table :data="tableData" style="width: 100%" max-height="300">
-            <el-table-column fixed prop="date" label="Date" width="150" />
-            <el-table-column prop="name" label="Name" width="120" />
-            <el-table-column prop="state" label="State" width="120" />
-            <el-table-column prop="city" label="City" width="120" />
-            <el-table-column prop="address" label="Address" width="600" />
-            <el-table-column prop="zip" label="Zip" width="120" />
-            <el-table-column fixed="right" label="Operations" width="120">
+          <el-table :data="tableData1" style="width: 100%" max-height="300">
+            <el-table-column prop="id" label="ID" width="50" />
+            <el-table-column prop="name" label="发货人" width="120" />
+            <el-table-column prop="docno" label="编号" width="200" />
+            <el-table-column prop="city" label="城市" width="120" />
+            <el-table-column prop="address" label="地址" width="300" />
+            <el-table-column prop="status" label="状态" width="100" />
+            <el-table-column prop="createTime" label="创建时间" width="200" />
+            <el-table-column prop="createName" label="创建人" width="120" />
+            <el-table-column prop="modifyTime" label="修改时间" width="200" />
+            <el-table-column prop="modifyName" label="修改人" width="120" />
+            <el-table-column prop="isActive" label="可用" width="120" />
+            <el-table-column fixed="right" label="操作" width="120">
               <template #default="scope">
                 <el-button link type="primary" size="small">
-                  view
+                  详情
                 </el-button>
               </template>
             </el-table-column>
@@ -163,22 +168,27 @@
       <el-col :lg="12" :md="24" class="mb-3">
         <el-card>
           <div class="h-10 flex align-center justify-between">
-            <div> <span class="font-size-xl font-bold">表格信息</span>（2）</div>
+            <div> <span class="font-size-xl font-bold">入库单</span>（件）</div>
             <div>
               <el-switch v-model="table2" active-text="本周" inactive-text="近三天" />
             </div>
           </div>
-          <el-table :data="tableData" style="width: 100%" max-height="300">
-            <el-table-column fixed prop="date" label="Date" width="150" />
-            <el-table-column prop="name" label="Name" width="120" />
-            <el-table-column prop="state" label="State" width="120" />
-            <el-table-column prop="city" label="City" width="120" />
-            <el-table-column prop="address" label="Address" width="600" />
-            <el-table-column prop="zip" label="Zip" width="120" />
-            <el-table-column fixed="right" label="Operations" width="120">
+          <el-table :data="tableData2" style="width: 100%" max-height="300">
+            <el-table-column prop="id" label="ID" width="50" />
+            <el-table-column prop="name" label="收货人" width="120" />
+            <el-table-column prop="docno" label="编号" width="200" />
+            <el-table-column prop="city" label="城市" width="120" />
+            <el-table-column prop="address" label="地址" width="300" />
+            <el-table-column prop="status" label="状态" width="100" />
+            <el-table-column prop="createTime" label="创建时间" width="200" />
+            <el-table-column prop="createName" label="创建人" width="120" />
+            <el-table-column prop="modifyTime" label="修改时间" width="200" />
+            <el-table-column prop="modifyName" label="修改人" width="120" />
+            <el-table-column prop="isActive" label="可用" width="120" />
+            <el-table-column fixed="right" label="操作" width="120">
               <template #default="scope">
                 <el-button link type="primary" size="small">
-                  view
+                  详情
                 </el-button>
               </template>
             </el-table-column>
@@ -251,58 +261,13 @@
 import { onMounted, Ref, ref } from 'vue'
 import { zr_0, zr_1 } from '@/utils/canvas'
 import { getBaseZr_0, getBaseZr_1, getBaseZr_2 } from '@/api/base'
+import { getBaseList } from '@/api/list'
 import * as echarts from 'echarts'
 
 const table1 = ref(false)
 const table2 = ref(false)
-const tableData = ref([{
-  date: '2016-05-01',
-  name: 'Tom',
-  state: 'California',
-  city: 'Los Angeles',
-  address: 'No. 189, Grove St, Los Angeles',
-  zip: 'CA 90036',
-},
-{
-  date: '2016-05-02',
-  name: 'Tom',
-  state: 'California',
-  city: 'Los Angeles',
-  address: 'No. 189, Grove St, Los Angeles',
-  zip: 'CA 90036',
-},
-{
-  date: '2016-05-03',
-  name: 'Tom',
-  state: 'California',
-  city: 'Los Angeles',
-  address: 'No. 189, Grove St, Los Angeles',
-  zip: 'CA 90036',
-},
-{
-  date: '2016-05-03',
-  name: 'Tom',
-  state: 'California',
-  city: 'Los Angeles',
-  address: 'No. 189, Grove St, Los Angeles',
-  zip: 'CA 90036',
-},
-{
-  date: '2016-05-03',
-  name: 'Tom',
-  state: 'California',
-  city: 'Los Angeles',
-  address: 'No. 189, Grove St, Los Angeles',
-  zip: 'CA 90036',
-},
-{
-  date: '2016-05-03',
-  name: 'Tom',
-  state: 'California',
-  city: 'Los Angeles',
-  address: 'No. 189, Grove St, Los Angeles',
-  zip: 'CA 90036',
-}])
+const tableData1 = ref([])
+const tableData2 = ref([])
 const echarsDom1: Ref<HTMLElement | any> = ref(null)
 const echarsDom2: Ref<HTMLElement | any> = ref(null)
 const echarsDom3: Ref<HTMLElement | any> = ref(null)
@@ -320,10 +285,20 @@ const echartsInit = async () => {
   myEcharts3.setOption(myEcharts3Data)
 }
 
+const tableInit = async () => {
+  const data_0: any = await getBaseList({})
+  tableData1.value = data_0.data
+  console.log("🚀 ~ file: base.vue:279 ~ tableInit ~ data_0:", data_0)
+  const data_1: any = await getBaseList({})
+  tableData2.value = data_1.data
+  console.log("🚀 ~ file: base.vue:281 ~ tableInit ~ data_1:", data_1)
+}
+
 const init = () => {
   zr_0()
   zr_1()
   echartsInit()
+  tableInit()
 }
 onMounted(() => {
   init()
