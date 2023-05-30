@@ -11,7 +11,7 @@
             </div>
         </div>
          <!-- 底部信息栏 -->
-         <div class="w-screen h-10 text-xs fixed left-0 bottom-0">
+         <div class="w-full text-xs absolute left-0 bottom-0">
             <div class="h-5 bg-gray-300 flex items-center justify-center">
                 <a href="https://beian.miit.gov.cn/" target="_blank">豫ICP备2023002542号-1</a>
             </div>
