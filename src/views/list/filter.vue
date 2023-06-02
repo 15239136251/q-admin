@@ -14,26 +14,27 @@
         <el-button type="primary" @click="query">
           <el-icon class="el-icon--left">
             <Search />
-          </el-icon>查询
+          </el-icon>
+          {{t('common.btns.query')}}
         </el-button>
         <el-button type="primary">
           <el-icon class="el-icon--left">
             <Refresh />
           </el-icon>
-          重置
+          {{t('common.btns.empty')}}
         </el-button>
         <el-button type="primary" @click="handleClick">
           <div class="flex align-center" v-if="isDown">
             <el-icon class="el-icon--left">
               <ArrowDown />
             </el-icon>
-            <span>展开</span>
+            <span> {{t('common.btns.expansion')}}</span>
           </div>
           <div class="flex align-center" v-else>
             <el-icon class="el-icon--left">
               <ArrowUp />
             </el-icon>
-            <span>收起</span>
+            <span> {{t('common.btns.putAway')}}</span>
           </div>
         </el-button>
       </div>
@@ -43,9 +44,9 @@
         <el-row class="mb-5">
           <el-col :md="12" :sm="24">
             <div class="flex justify-start">
-              <el-button type="primary">全选</el-button>
-              <el-button type="primary">反选</el-button>
-              <el-button type="primary">清空</el-button>
+              <el-button type="primary">{{t('common.btns.allSelect')}}</el-button>
+              <el-button type="primary">{{t('common.btns.reveresSelect')}}</el-button>
+              <el-button type="primary">{{t('common.btns.empty')}}</el-button>
             </div>
           </el-col>
           <el-col :md="12" :sm="24">
@@ -53,27 +54,27 @@
               <el-button type="primary">
                 <el-icon class="el-icon--left">
                   <Plus />
-                </el-icon>新增
+                </el-icon>{{t('common.btns.add')}}
               </el-button>
               <el-button type="primary">
                 <el-icon class="el-icon--left">
                   <Refresh />
-                </el-icon>刷新
+                </el-icon>{{t('common.btns.refresh')}}
               </el-button>
               <el-button type="danger">
                 <el-icon class="el-icon--left">
                   <Delete />
-                </el-icon>删除
+                </el-icon>{{t('common.btns.delete')}}
               </el-button>
               <el-dropdown class="ml-3">
                 <el-button type="primary">
-                  更多<el-icon class="el-icon--right"><arrow-down /></el-icon>
+                  {{t('common.btns.more')}}<el-icon class="el-icon--right"><arrow-down /></el-icon>
                 </el-button>
                 <template #dropdown>
                   <el-dropdown-menu>
-                    <el-dropdown-item>导入</el-dropdown-item>
-                    <el-dropdown-item>导出</el-dropdown-item>
-                    <el-dropdown-item>设置列显隐</el-dropdown-item>
+                    <el-dropdown-item>{{t('common.btns.import')}}</el-dropdown-item>
+                    <el-dropdown-item>{{t('common.btns.export')}}</el-dropdown-item>
+                    <el-dropdown-item>{{ t('common.btns.setColHide')}}</el-dropdown-item>
                   </el-dropdown-menu>
                 </template>
               </el-dropdown>
@@ -105,27 +106,36 @@
                 <el-checkbox class="disabCheck" :checked="scope.row.isActive" disabled></el-checkbox>
               </template>
             </el-table-column>
-            <el-table-column label="操作" fixed="right" min-width="240" max-width="200">
+            <el-table-column label="操作" fixed="right" min-width="180" max-width="180">
               <template #default="scope">
                 <div class="flex justify-around">
-                  <el-button type="primary" size="small">
-                    <el-icon class="el-icon--left">
-                      <View />
-                    </el-icon>
-                    详情
-                  </el-button>
-                  <el-button type="warning" size="small">
-                    <el-icon class="el-icon--left">
-                      <Edit />
-                    </el-icon>
-                    编辑
-                  </el-button>
-                  <el-button type="danger" size="small">
-                    <el-icon class="el-icon--left">
-                      <Delete />
-                    </el-icon>
-                    删除
-                  </el-button>
+                  <el-tooltip effect="dark" :content="t('common.btns.view')" placement="top">
+                    <div class="top-bar__item">
+                      <el-button type="primary" size="small">
+                        <el-icon>
+                          <View />
+                        </el-icon>
+                      </el-button>
+                    </div>
+                  </el-tooltip>
+                  <el-tooltip effect="dark" :content="t('common.btns.edit')" placement="top">
+                    <div class="top-bar__item">
+                      <el-button type="primary" size="small">
+                        <el-icon>
+                          <Edit />
+                        </el-icon>
+                      </el-button>
+                    </div>
+                  </el-tooltip>
+                  <el-tooltip effect="dark" :content="t('common.btns.delete')" placement="top">
+                    <div class="top-bar__item">
+                      <el-button type="danger" size="small">
+                        <el-icon>
+                          <Delete />
+                        </el-icon>
+                      </el-button>
+                    </div>
+                  </el-tooltip>
                 </div>
               </template>
             </el-table-column>
@@ -146,6 +156,10 @@
 <script setup lang="ts">
 import { ref, reactive, computed } from 'vue'
 import { getBaseList } from '@/api/list'
+import useLocale from '@/utils/useLocale'
+
+/* 语言切换 */
+const { i18n: { t } } = useLocale()
 type stringKey = {
   [key: string]: any
 }

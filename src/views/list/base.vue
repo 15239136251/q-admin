@@ -3,11 +3,11 @@
     <el-card>
       <div class="flex align-center justify-between">
         <div class="align-bottom">
-          <el-button type="primary"><el-icon class="el-icon--left"><Plus /></el-icon>新增</el-button>
-          <el-button type="warning"><el-icon class="el-icon--left"><Edit /></el-icon>编辑</el-button>
-          <el-button type="danger"><el-icon class="el-icon--left"><Delete /></el-icon>删除</el-button>
-          <el-button type="primary"><el-icon class="el-icon--left"><Refresh /></el-icon>刷新</el-button>
-          <el-button type="info" disabled>导出</el-button>
+          <el-button type="primary"><el-icon class="el-icon--left"><Plus /></el-icon>{{ t('common.btns.add') }}</el-button>
+          <el-button type="warning"><el-icon class="el-icon--left"><Edit /></el-icon>{{ t('common.btns.edit') }}</el-button>
+          <el-button type="danger"><el-icon class="el-icon--left"><Delete /></el-icon>{{ t('common.btns.delete') }}</el-button>
+          <el-button type="primary"><el-icon class="el-icon--left"><Refresh /></el-icon>{{ t('common.btns.refresh') }}</el-button>
+          <el-button type="info" disabled>{{ t('common.btns.export') }}</el-button>
           <el-text v-if="multipleSelection.length" class="ml-4 font-size-sm text-gray-400">已选 {{ multipleSelection.length }} 项</el-text>
         </div>
         <div>
@@ -38,21 +38,42 @@
               <el-checkbox class="disabCheck" :checked="scope.row.isActive" disabled></el-checkbox>
             </template>
           </el-table-column>
-          <el-table-column label="操作" fixed="right" min-width="240" max-width="200">
+          <el-table-column label="操作" fixed="right" min-width="180" max-width="180">
             <template #default="scope">
               <div class="flex justify-around">
-                <el-button type="primary" size="small">
-                  <el-icon class="el-icon--left"><View /></el-icon>
-                  详情
-                </el-button>
-                <el-button type="warning" size="small">
-                  <el-icon class="el-icon--left"><Edit /></el-icon>
-                  编辑
-                </el-button>
-                <el-button type="danger" size="small">
-                  <el-icon class="el-icon--left"><Delete /></el-icon>
-                  删除
-                </el-button>
+                <el-tooltip 
+                  effect="dark"
+                  :content="t('common.btns.view')"
+                  placement="top"
+                >
+                  <div class="top-bar__item">
+                    <el-button type="primary" size="small">
+                      <el-icon><View /></el-icon>
+                    </el-button>
+                  </div>
+                </el-tooltip>
+                <el-tooltip 
+                  effect="dark"
+                  :content="t('common.btns.edit')"
+                  placement="top"
+                >
+                  <div class="top-bar__item">
+                    <el-button type="primary" size="small">
+                      <el-icon><Edit /></el-icon>
+                    </el-button>
+                  </div>
+                </el-tooltip>
+                <el-tooltip 
+                  effect="dark"
+                  :content="t('common.btns.delete')"
+                  placement="top"
+                >
+                  <div class="top-bar__item">
+                    <el-button type="danger" size="small">
+                      <el-icon><Delete /></el-icon>
+                    </el-button>
+                  </div>
+                </el-tooltip>
               </div>
             </template>
           </el-table-column>
@@ -72,7 +93,10 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import { getBaseList } from '@/api/list'
+import useLocale from '@/utils/useLocale'
 
+/* 语言切换 */
+const { i18n: { t } } = useLocale()
 const search = ref('')
 const tableData = ref([])
 const multipleSelection = ref([])

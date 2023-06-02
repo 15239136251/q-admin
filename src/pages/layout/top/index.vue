@@ -23,6 +23,27 @@
                     <el-icon><Lock /></el-icon>
                 </div>
             </el-tooltip>
+            <!-- 切换语言 -->
+            <el-tooltip 
+                v-if="currentLocale === 'zh-CN'"
+                effect="dark"
+                placement="bottom"
+                :content="t('navbar.switchEn')"
+            >
+                <div class="top-bar__item" @click="changeLoacle('en-US')">
+                    <el-icon><Switch /></el-icon>
+                </div>
+            </el-tooltip>
+            <el-tooltip 
+                v-if="currentLocale === 'en-US'"
+                effect="dark"
+                :content="t('navbar.switchZh')"
+                placement="bottom"
+            >
+                <div class="top-bar__item" @click="changeLoacle('zh-CN')">
+                    <el-icon><Switch /></el-icon>
+                </div>
+            </el-tooltip>
             <!-- 退出 -->
             <img class="top-bar__img" src="/img/avatar.jpg">
             <el-dropdown>
@@ -57,7 +78,7 @@ const { SET_COLLAPSE } = commonStore
 
 const showLock = true
 /* 语言切换 */
-const { i18n: { t } } = useLocale()
+const { i18n: { t }, currentLocale, changeLoacle } = useLocale()
 const { logout, loginInit } = useUserStore()
 const goHome = () => {
     router.push({

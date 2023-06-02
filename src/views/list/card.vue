@@ -4,7 +4,7 @@
       <div class="align-bottom">
         <el-button type="primary"><el-icon class="el-icon--left">
             <Plus />
-          </el-icon>新增</el-button>
+          </el-icon>{{ t('common.btns.add') }}</el-button>
       </div>
       <div>
         <el-input v-model="search" class="w-64" placeholder="请输入信息"></el-input>
@@ -39,8 +39,8 @@
                 </span>
                 <template #dropdown>
                   <el-dropdown-menu>
-                    <el-dropdown-item>管理</el-dropdown-item>
-                    <el-dropdown-item>删除</el-dropdown-item>
+                    <el-dropdown-item>{{ t('common.btns.management') }}</el-dropdown-item>
+                    <el-dropdown-item>{{ t('common.btns.delete') }}</el-dropdown-item>
                   </el-dropdown-menu>
                 </template>
               </el-dropdown>
@@ -62,7 +62,10 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import { getCardList } from '@/api/list'
+import useLocale from '@/utils/useLocale'
 
+/* 语言切换 */
+const { i18n: { t } } = useLocale()
 const search = ref('')
 const tableData = ref([])
 const currentPage = ref(1)
