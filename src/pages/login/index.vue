@@ -100,6 +100,6 @@ init()
 onDeactivated(() => {})
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+@import '~bootstrap/scss/bootstrap.scss';
 </style>
