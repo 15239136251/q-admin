@@ -1,7 +1,7 @@
 <template>
   <div class="index">
     <el-row gutter="20">
-      <el-col :span="24" class="mb-3">
+      <el-col :span="24" class="mb-5">
         <el-card>
           <p class="flex justify-center align-center">
             <img src="https://img.shields.io/badge/Release-V3.1.1-green.svg" alt="Downloads">
@@ -64,7 +64,7 @@
             <el-link href="https://quhaibin.cn/home/index" target="_blank">https://quhaibin.cn</el-link>
           </div>
         </el-card>
-        <el-card class="mt-3" v-if="updatelogs.length">
+        <el-card class="mt-5" v-if="updatelogs.length">
           <el-collapse v-model="logsActiveNames">
             <el-collapse-item :title="item.title" :name="index" v-for="(item, index) in updatelogs" :key="index">
               <ol start="1" style="font-size: 12px;">

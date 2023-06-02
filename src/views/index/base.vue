@@ -1,7 +1,7 @@
 <template>
   <div class="">
     <el-row gutter="20" class="font-size-md">
-      <el-col :lg="6" :md="12" :xs="24" class="mb-3">
+      <el-col :lg="6" :md="12" :xs="24" class="mb-5">
         <el-card class="rounded-lg bg-blue-600 text-white cursor-pointer">
           <div class="">总收入</div>
           <div class="flex align-items-center justify-between font-size-5xl relative mt-2">
@@ -32,7 +32,7 @@
           </div>
         </el-card>
       </el-col>
-      <el-col :lg="6" :md="12" :xs="24" class="mb-3">
+      <el-col :lg="6" :md="12" :xs="24" class="mb-5">
         <el-card class="rounded-lg cursor-pointer text-gray-400">
           <div class="">总退款</div>
           <div class="flex align-items-center justify-between font-size-5xl relative mt-2 text-black">
@@ -63,7 +63,7 @@
           </div>
         </el-card>
       </el-col>
-      <el-col :lg="6" :md="12" :xs="24" class="mb-3">
+      <el-col :lg="6" :md="12" :xs="24" class="mb-5">
         <el-card class="rounded-lg cursor-pointer text-gray-400">
           <div class="">活跃用户(个)</div>
           <div class="flex align-items-center justify-between font-size-5xl relative mt-2 text-black">
@@ -92,7 +92,7 @@
           </div>
         </el-card>
       </el-col>
-      <el-col :lg="6" :md="12" :xs="24" class="mb-3">
+      <el-col :lg="6" :md="12" :xs="24" class="mb-5">
         <el-card class="rounded-lg cursor-pointer text-gray-400">
           <div class="">产生订单(个)</div>
           <div class="flex align-items-center justify-between font-size-5xl relative mt-2 text-black">
@@ -123,19 +123,19 @@
       </el-col>
     </el-row>
     <el-row gutter="20" class="font-size-md">
-      <el-col :lg="18" :md="24" class="mb-3">
+      <el-col :lg="18" :md="24" class="mb-5">
         <el-card>
           <div ref="echarsDom1" style="width: 100%; height: 400px"></div>
         </el-card>
       </el-col>
-      <el-col :lg="6" :md="24" class="mb-3">
+      <el-col :lg="6" :md="24" class="mb-5">
         <el-card class="">
           <div ref="echarsDom2" style="width: 100%; height: 400px"></div>
         </el-card>
       </el-col>
     </el-row>
     <el-row gutter="20" class="font-size-md">
-      <el-col :lg="12" :md="24" class="mb-3">
+      <el-col :lg="12" :md="24" class="mb-5">
         <el-card>
           <div class="h-10 flex align-center justify-between">
             <div> <span class="font-size-xl font-bold">出库单</span>（件）</div>
@@ -165,7 +165,7 @@
           </el-table>
         </el-card>
       </el-col>
-      <el-col :lg="12" :md="24" class="mb-3">
+      <el-col :lg="12" :md="24" class="mb-5">
         <el-card>
           <div class="h-10 flex align-center justify-between">
             <div> <span class="font-size-xl font-bold">入库单</span>（件）</div>

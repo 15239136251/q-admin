@@ -1,6 +1,6 @@
 <template>
   <div class="mb-10">
-    <div class="flex align-items-center justify-between my-3">
+    <div class="flex align-items-center justify-between mb-5">
       <div class="align-bottom">
         <el-button type="primary"><el-icon class="el-icon--left">
             <Plus />
@@ -11,7 +11,7 @@
       </div>
     </div>
     <el-row gutter="20">
-      <el-col class="mb-3" :lg="6" :md="12" :sm="24" v-for="item in list" :key="item.id">
+      <el-col class="mb-5" :lg="6" :md="12" :sm="24" v-for="item in list" :key="item.id">
         <el-card class="flex flex-col justify-between cursor-pointer">
           <div class="flex align-items-center justify-between">
             <div class="w-14 h-14 rounded-full bg-blue-300 flex align-items-center justify-center">
