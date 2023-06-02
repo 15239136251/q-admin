@@ -1,65 +1,88 @@
 // 动画
-@import './animation.scss';
+@import "./animation.scss";
 
 // 登录样式
-@import './login.scss';
+@import "./login.scss";
 
 // 引入 bootstrap
-@import './bootstrap.scss';
+@import "./bootstrap.scss";
 
 // Layout 样式
-@import './media.scss';
+@import "./media.scss";
 
 // sidebar 样式
-@import './sidebar.scss';
+@import "./sidebar.scss";
 
 // top 样式
-@import './top.scss';
+@import "./top.scss";
 
 // tags 样式
-@import './tags.scss';
+@import "./tags.scss";
 
 body {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .font-size-xs {
-    font-size: 10px;
+  font-size: 10px;
 }
 
 .font-size-sm {
-    font-size: 12px;
+  font-size: 12px;
 }
 
 .font-size-md {
-    font-size: 14px;
+  font-size: 14px;
 }
 
 .font-size-base {
-    font-size: 16px;
+  font-size: 16px;
 }
 
 .font-size-lg {
-    font-size: 18px;
+  font-size: 18px;
 }
 
 .font-size-xl {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 .font-size-2xl {
-    font-size: 22px;
+  font-size: 22px;
 }
 
 .font-size-3xl {
-    font-size: 24px;
+  font-size: 24px;
 }
 
 .font-size-4xl {
-    font-size: 26px;
+  font-size: 26px;
 }
 
 .font-size-5xl {
-    font-size: 28px;
+  font-size: 28px;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.disabCheck
+  > .el-checkbox__input.is-disabled.is-checked
+  .el-checkbox__inner::after {
+  border-color: #fff;
+}
+
+.disabCheck > .el-checkbox__input.is-disabled.is-checked .el-checkbox__inner {
+  background-color: #409eff;
+  border-color: #409eff;
+}
+
+.disabCheck > .el-checkbox__input.is-disabled + span.el-checkbox__label {
+  color: #606266;
+}
+
+.disabCheck > .el-checkbox__label {
+  font-size: 12px;
 }

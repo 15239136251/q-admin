@@ -103,20 +103,5 @@ init()
 </script>
 
 <style lang="scss">
-.disabCheck>.el-checkbox__input.is-disabled.is-checked .el-checkbox__inner::after {
-  border-color: #fff;
-}
 
-.disabCheck>.el-checkbox__input.is-disabled.is-checked .el-checkbox__inner {
-  background-color: #409eff;
-  border-color: #409eff;
-}
-
-.disabCheck>.el-checkbox__input.is-disabled+span.el-checkbox__label {
-  color: #606266;
-}
-
-.disabCheck>.el-checkbox__label {
-  font-size: 12px;
-}
 </style>
