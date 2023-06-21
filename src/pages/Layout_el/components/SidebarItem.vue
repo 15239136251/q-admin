@@ -1,8 +1,8 @@
 <template>
   <div class="menu-wrapper">
     <template v-for="item in menu">
-        <!-- 没有下级菜单 -->
-        <el-menu-item v-if="validatenull(item[childrenKey])" :index="item[pathKey]" :key="item[labelKey]"
+       <!-- 没有下级菜单 -->
+       <el-menu-item v-if="validatenull(item[childrenKey])" :index="item[pathKey]" :key="item[labelKey]"
           :class="{ 'is-active': vaildActive(item) }" @click="open(item)">
           <el-icon v-if="item[iconKey].indexOf('icon-') != -1">
             <i class="iconfont" :class="item[iconKey]"></i>
@@ -48,7 +48,7 @@ import router from '@/router';
 import { Menu } from '@/store/sidebar';
 import { validatenull } from '@/utils/valldate';
 import { defineProps, computed, toRefs, ComputedRef } from 'vue'
-import config from './config'
+import config from '../config'
 
 const props = defineProps({
   menu: {

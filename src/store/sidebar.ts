@@ -14,7 +14,8 @@ export interface Menu {
     parentId: number
     children?: Menu[]
     isOpen?: number
-    query?: any
+    query?: any,
+    [key: string]: any
 }
 
 export interface TopMenu {
