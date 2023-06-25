@@ -4,28 +4,34 @@ import router from '@/router'
 import { getStore, removeStore, setStore } from '@/utils/storage'
 import { validatenull } from '@/utils/valldate'
 import { defineStore } from 'pinia'
-import { Md5 } from 'ts-md5'
 import { useSidebarStore } from './sidebar'
 
 // 按钮组
 const { getMenus, getTopMenu } = useSidebarStore()
-
+export interface UserInfo {
+    avatar: string
+    id: number
+    name: string
+    token: string
+    refreshToken: string
+}
+export interface UserStore {
+    roles: number[]
+    userinfo: UserInfo
+    token: string
+    refreshToken: string
+}
 export const useUserStore = defineStore('userStore', {
-    state: () => {
-        const roles: number[] = []
-        const userinfo: any = getStore({name: 'userinfo'}) || {}
-        
-        const token: string = getStore({name: 'token'}) || ''
-        const refreshToken: string = getStore({name: 'refreshToken'}) || ''
+    state: (): UserStore => {
         return {
-            userinfo,
-            roles,
-            token,
-            refreshToken,
+            roles: [],
+            userinfo: getStore({name: 'userinfo'}) || {},
+            token: getStore({name: 'token'}) || '',
+            refreshToken: getStore({name: 'refreshToken'})
         }
     },
     actions: {
-        SET_USER_INFO(userinfo: any) {
+        SET_USER_INFO(userinfo: UserInfo) {
             if (validatenull(userinfo.avatar)) {
                 userinfo.avatar = '/img/avatar.jpg'
             }
