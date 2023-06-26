@@ -3,6 +3,12 @@ import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 import { ElMessage } from 'element-plus'
 
+export type Result<T> = {
+    code: number
+    message: string
+    data: T
+}
+
 export class Request {
     // axios 实例
     instance: AxiosInstance
@@ -43,9 +49,9 @@ export class Request {
                 // 关闭 NProgress
                 NProgress.done()
                 // 获取状态码
-                const status = res.data.code || res.status
+                const status: number = res.data.code || res.status
                 // 白名单
-                const statusWhiteList: any[] = []
+                const statusWhiteList: number[] = []
                 const message =
                     res.data.message ||
                     res.data.msg ||
@@ -68,10 +74,17 @@ export class Request {
     }
 
     // 定义请求方法
-    public request(config: AxiosRequestConfig): Promise<AxiosResponse> {
+    public request<T = any>(config: AxiosRequestConfig): Promise<AxiosResponse<Result<T>>> {
         return this.instance.request(config)
     }
 
+    public get<T = any>(url: string, config: AxiosRequestConfig): Promise<AxiosResponse<Result<T>>> {
+        return this.instance.get(url, config)
+    }
+
+    public post<T = any>(url: string, data?: any, config?: AxiosRequestConfig): Promise<AxiosResponse<Result<T>>> {
+        return this.instance.post(url, data, config)
+    }
 
 }
 

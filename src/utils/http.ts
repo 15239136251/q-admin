@@ -1,4 +1,4 @@
-import axios from "./axios"
+import axios from "./request"
 import { ElMessage } from 'element-plus'
 import { getStore } from "./storage"
 
@@ -15,7 +15,7 @@ const resError = (res: any, msg = '响应发生错误') =>
             resolve(res)
             return
         }
-        // 请求响应 401 表示需要登录
+        // 请求响应 401 表示需要登录 
         if (+res.status === 401) {
             console.log('TODO: 此处需补充逻辑')
             return
@@ -27,7 +27,7 @@ const resError = (res: any, msg = '响应发生错误') =>
 
 // 响应拦截函数，接收响应对象为参数，用于根据响应结果做出相应操作
 // 响应成功(status === 2xx)时会被调用
-const resFn = (res: any) =>
+const resFn = <T = any>(res: any): Promise<T> =>
     new Promise((resolve, reject) => {
         const { code, data, result, msg, message, success } = res.data
         if (success || +code === 100) {
@@ -57,14 +57,14 @@ interface ReqData {
     isShowLoading?: boolean
 }
 
-const REQ = async (
+const REQ = async <T = any>(
     reqData: ReqData = {
         url: '',
         data: {},
         method: 'GET',
         baseURL: VITE_BASE_URL
     }
-) => {
+): Promise<T> => {
     const reqDataJSON = JSON.stringify(reqData)
     if (pendingList.includes(reqDataJSON)) {
         throw new Error('重复请求...')
@@ -79,7 +79,7 @@ const REQ = async (
         'x-token': token
     }
     return new Promise((resolve, reject) => {
-        axios({
+        axios.request<T>({
             url: baseURL + url,
             method,
             data,
