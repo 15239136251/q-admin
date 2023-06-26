@@ -47,6 +47,6 @@ init()
 }
 
 .layout-container .el-menu {
-  border-right: none;
+  /* border-right: none; */
 }
 </style>
