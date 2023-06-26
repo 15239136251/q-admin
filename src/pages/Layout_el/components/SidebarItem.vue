@@ -21,7 +21,7 @@
             <el-icon v-else>
               <component :is="item[iconKey]" />
             </el-icon>
-            <span>{{ item[labelKey] }}</span>
+            <span v-if="!collapse">{{ item[labelKey] }}</span>
           </template>
           <template v-for="(child, cindex) in item[childrenKey]">
             <el-menu-item v-if="validatenull(child[childrenKey])" :index="child[pathKey]" :key="child[labelKey]"
