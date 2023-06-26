@@ -1,6 +1,7 @@
 import REQ from "@/utils/http";
+import { UserInfo } from '@/store/user';
 
-export const loginUser = (username: string, password: string, code: string) => REQ({
+export const loginUser = (username: string, password: string, code: string) => REQ<UserInfo>({
     url: '/api/auth/login',
     method: 'POST',
     data: {
