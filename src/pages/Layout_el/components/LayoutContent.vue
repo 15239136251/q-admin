@@ -1,7 +1,7 @@
 <template>
   <div>
     <tags></tags>
-    <div class="q-view">
+    <div class="">
       <transition name="fade-scale">
         <search v-show="false"></search>
       </transition>

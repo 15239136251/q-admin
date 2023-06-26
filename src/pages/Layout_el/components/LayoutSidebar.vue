@@ -1,5 +1,5 @@
 <template>
-	<el-scrollbar style="height: 100%">
+	<el-scrollbar style="height: 100%;border-right: 1px solid var(--el-border-color);">
 		<logo></logo>
 		<el-menu unique-opened :default-active="menuActive" :show-timeout="200" :collapse="isCollapse">
 			<sidebar-item :menu="menus" :screen="screen" first :props="props" :collapse="isCollapse"></sidebar-item>

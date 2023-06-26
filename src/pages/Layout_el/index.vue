@@ -8,7 +8,7 @@
         <el-header class="q-top">
           <layout-header></layout-header>
         </el-header>
-        <el-main style="padding: 0;">
+        <el-main>
           <layout-content></layout-content>
         </el-main>
       </el-container>
@@ -47,6 +47,6 @@ init()
 }
 
 .layout-container .el-menu {
-  /* border-right: none; */
+  border-right: none;
 }
 </style>
