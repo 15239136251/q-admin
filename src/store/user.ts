@@ -15,7 +15,7 @@ export interface UserInfo {
     token: string
     refreshToken: string
 }
-export interface UserStore {
+interface UserStore {
     roles: number[]
     userinfo: UserInfo
     token: string
@@ -52,7 +52,7 @@ export const useUserStore = defineStore('userStore', {
         /* 登录 */
         loginUser(loginForm: {username: string, password: string, code: string}) {
             return new Promise((resolve, reject) => {
-                loginUser(loginForm.username, loginForm.password, loginForm.code).then((res: any) => {
+                loginUser(loginForm.username, loginForm.password, loginForm.code).then((res) => {
                     console.log("🚀 ~ file: user.ts:72 ~ loginUser ~ res:", res)
                     this.SET_TOKEN(res.token)
                     this.SET_REFRESH_TOKEN(res.refreshToken)

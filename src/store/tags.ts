@@ -32,19 +32,18 @@ const setFistTag = (list: Tag[]) => {
     }
 }
 
+interface TagsStore {
+    tag: Tag,
+    taglist: Tag[],
+    tagWel: Tag,
+    showTag: boolean
+}
 
 export const useTagsStore = defineStore('tagsStore', {
-    state: () => {
-        const taglist: Tag[] = getStore({ name: 'taglist' }) || []
-        const tag: Tag = getStore({ name: 'tag' }) || {
-            label: '',
-            path: '',
-            params: {},
-            query: {}
-        }
+    state: (): TagsStore => {
         return {
-            taglist: taglist,
-            tag: tag,
+            taglist: getStore({ name: 'taglist' }) || [tagWel],
+            tag: getStore({ name: 'tag' }) || tagWel,
             tagWel: tagWel,
             showTag: true
         }

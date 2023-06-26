@@ -27,19 +27,22 @@ export interface TopMenu {
     query?: any
 }
 
+interface SidebarStore {
+    menu: Menu[]
+    menus: Menu[]
+    menuId: number[]
+    menuAll: Menu[]
+    topMenus: TopMenu[]
+}
+
 export const useSidebarStore = defineStore('sidebarStore', {
-    state: () => {
-        const menu: Menu[] = getStore({name: 'menu'}) || []
-        const menuId: number[] = getStore({name: 'menuId'}) || []
-        const menuAll: Menu[] = getStore({name: 'menuAll'}) || []
-        const topMenus: TopMenu[] = getStore({name: 'topMenus'}) || []
-        const menus: Menu[] = getStore({name: 'menus'}) || []
+    state: (): SidebarStore => {
         return {
-            topMenus,
-            menus,
-            menu,
-            menuId,
-            menuAll,
+            menu: getStore({name: 'menu'}) || [],
+            menus: getStore({name: 'menus'}) || [],
+            menuId: getStore({name: 'menuId'}) || [],
+            menuAll: getStore({name: 'menuAll'}) || [],
+            topMenus: getStore({name: 'topMenus'}) || [],
         }
     },
     actions: {
