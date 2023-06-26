@@ -49,7 +49,7 @@
         </el-card>
       </el-col>
     </el-row>
-    <div class="p-4 flex align-bottom justify-end bg-white">
+    <div class="p-4 flex align-bottom justify-end">
         <div>
           <el-pagination v-model:current-page="currentPage" v-model:page-size="pageSize" :page-sizes="[10, 20, 30, 50]"
             :background="true" layout="sizes, prev, pager, next" :total="150" @size-change="handleSizeChange"
