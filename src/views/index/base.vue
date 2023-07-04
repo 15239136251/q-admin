@@ -35,7 +35,7 @@
       <el-col :lg="6" :md="12" :xs="24" class="mb-5">
         <el-card class="rounded-lg cursor-pointer text-gray-400">
           <div class="">总退款</div>
-          <div class="flex align-items-center justify-between font-size-5xl relative mt-2 text-black">
+          <div class="flex align-items-center justify-between font-size-5xl relative mt-2 text-black dark:text-white">
             <div>
               <span>¥ 425.00</span>
             </div>
@@ -66,7 +66,7 @@
       <el-col :lg="6" :md="12" :xs="24" class="mb-5">
         <el-card class="rounded-lg cursor-pointer text-gray-400">
           <div class="">活跃用户(个)</div>
-          <div class="flex align-items-center justify-between font-size-5xl relative mt-2 text-black">
+          <div class="flex align-items-center justify-between font-size-5xl relative mt-2 text-black dark:text-white">
             <div>
               <span>1010</span>
             </div>
@@ -95,7 +95,7 @@
       <el-col :lg="6" :md="12" :xs="24" class="mb-5">
         <el-card class="rounded-lg cursor-pointer text-gray-400">
           <div class="">产生订单(个)</div>
-          <div class="flex align-items-center justify-between font-size-5xl relative mt-2 text-black">
+          <div class="flex align-items-center justify-between font-size-5xl relative mt-2 text-black dark:text-white">
             <div>
               <span>500</span>
             </div>
@@ -140,7 +140,7 @@
           <div class="h-10 flex align-center justify-between">
             <div> <span class="font-size-xl font-bold">出库单</span>（件）</div>
             <div>
-              <el-switch v-model="table1" active-text="本周" inactive-text="近三天" />
+              <el-switch v-model="table1" active-text="本周" inactive-text="近三天" @change="outChange" />
             </div>
           </div>
           <el-table :data="tableData1" style="width: 100%" max-height="300">
@@ -170,7 +170,7 @@
           <div class="h-10 flex align-center justify-between">
             <div> <span class="font-size-xl font-bold">入库单</span>（件）</div>
             <div>
-              <el-switch v-model="table2" active-text="本周" inactive-text="近三天" />
+              <el-switch v-model="table2" active-text="本周" inactive-text="近三天" @change="inChange"/>
             </div>
           </div>
           <el-table :data="tableData2" style="width: 100%" max-height="300">
@@ -213,7 +213,7 @@
                 <el-col :lg="24" :md="12" style="height: 200px;">
                   <div class="font-size-md">
                     <p class="text-gray-400">本月出库数量（件）</p>
-                    <div class="font-size-5xl relative mt-2 text-black">
+                    <div class="font-size-5xl relative mt-2 text-black dark:text-white">
                       <div>
                         <span>500</span>
                       </div>
@@ -232,7 +232,7 @@
                 <el-col :lg="24" :md="12" style="height: 200px;">
                   <div class="font-size-md">
                     <p class="text-gray-400">本月入库数量（件）</p>
-                    <div class="font-size-5xl relative mt-2 text-black">
+                    <div class="font-size-5xl relative mt-2 text-black dark:text-white">
                       <div>
                         <span>400</span>
                       </div>
@@ -272,6 +272,18 @@ const echarsDom1: Ref<HTMLElement | any> = ref(null)
 const echarsDom2: Ref<HTMLElement | any> = ref(null)
 const echarsDom3: Ref<HTMLElement | any> = ref(null)
 
+
+const outChange = async () => {
+  const data: any = await getBaseList({type: 'out'})
+  console.log("🚀 ~ file: base.vue:278 ~ outChange ~ data:", data)
+  tableData1.value = data.data
+}
+const inChange = async () => {
+  const data: any = await getBaseList({type: 'in'})
+  console.log("🚀 ~ file: base.vue:283 ~ inChange ~ data:", data)
+  tableData2.value = data.data
+}
+
 const echartsInit = async () => {
   // 创建echarts初始化对象
   const myEcharts1 = echarts.init(echarsDom1.value)
@@ -286,10 +298,10 @@ const echartsInit = async () => {
 }
 
 const tableInit = async () => {
-  const data_0: any = await getBaseList({})
+  const data_0: any = await getBaseList({type: 'out'})
   tableData1.value = data_0.data
   console.log("🚀 ~ file: base.vue:279 ~ tableInit ~ data_0:", data_0)
-  const data_1: any = await getBaseList({})
+  const data_1: any = await getBaseList({type: 'in'})
   tableData2.value = data_1.data
   console.log("🚀 ~ file: base.vue:281 ~ tableInit ~ data_1:", data_1)
 }

@@ -21,7 +21,7 @@ export const zr_1 = () => {
   c.style.height = '100'
   c.style.top = '-15'
   const ctx = c.getContext("2d")
-  ctx.fillStyle = 'rgba(37, 99, 235,1)'
+  ctx.fillStyle = '#409eff'
   ctx.fillRect(10, 50, 10, -20)
   ctx.fillRect(30, 50, 10, -30)
   ctx.fillRect(50, 50, 10, -40)

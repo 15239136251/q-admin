@@ -7,7 +7,7 @@ export const getTopMenu = () => REQ({
 });
 
 export const getMenus = () => REQ({
-    url: '/api/auth/menu',
+    url: '/api/menu/list',
     method: 'GET',
     data: {}
 });

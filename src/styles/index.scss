@@ -75,8 +75,8 @@ body {
 }
 
 .disabCheck > .el-checkbox__input.is-disabled.is-checked .el-checkbox__inner {
-  background-color: #409eff;
-  border-color: #409eff;
+  background-color: var(--el-color-primary);
+  border-color: var(--el-color-primary);
 }
 
 .disabCheck > .el-checkbox__input.is-disabled + span.el-checkbox__label {

@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-container class="layout-container" style="height: 100vh">
-      <el-aside :width="isCollapse ? '60px' : '240px'">
+      <el-aside :width="isCollapse ? '60px' : '240px'" style="transition: width .3s;">
         <layout-sidebar></layout-sidebar>
       </el-aside>
       <el-container direction="vertical">

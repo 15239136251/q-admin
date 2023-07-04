@@ -57,6 +57,21 @@ const views: Array<RouteRecordRaw> = [
             name: '表格',
             meta: { title: '表格' },
             component: () => import('views/components/table.vue')
+        }, {
+            path: 'dialog',
+            name: '弹窗',
+            meta: { title: '弹窗' },
+            component: () => import('views/components/dialog.vue')
+        }, {
+            path: 'form',
+            name: '表单',
+            meta: { title: '表单' },
+            component: () => import('views/components/form.vue')
+        }, {
+            path: 'icon',
+            name: '图标',
+            meta: { title: '图标' },
+            component: () => import('views/components/icon.vue')
         }]
     },
     {

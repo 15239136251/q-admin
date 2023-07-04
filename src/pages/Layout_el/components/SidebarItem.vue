@@ -45,14 +45,14 @@
 
 <script setup lang="ts" name="sidebarItem">
 import router from '@/router';
-import { Menu } from '@/store/sidebar';
+import { QbMenu } from '@/store/sidebar';
 import { validatenull } from '@/utils/valldate';
 import { defineProps, computed, toRefs, ComputedRef } from 'vue'
 import config from '../config'
 
 const props = defineProps({
   menu: {
-    type: Array<Menu>
+    type: Array<QbMenu>
   },
   screen: {
     type: Number
@@ -91,15 +91,15 @@ const isOpenKey: ComputedRef<string> = computed(() => {
   return props.props.isOpen || config.propsDefault.isOpen
 })
 
-const vaildActive = (item: Menu) => {
+const vaildActive = (item: QbMenu) => {
   if (validIsOpen(item)) return false
 }
-const validIsOpen = (item: Menu) => {
+const validIsOpen = (item: QbMenu) => {
   if (item[isOpenKey.value] === 2) {
     return true
   }
 }
-const open = (item: Menu) => {
+const open = (item: QbMenu) => {
   console.log("🚀 ~ file: siderbarItem.vue:84 ~ open ~ item:", item)
   router.push({
     path: item.path,

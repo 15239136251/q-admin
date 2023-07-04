@@ -5,33 +5,29 @@ import { defineStore } from "pinia";
 import { getMenus, getTopMenu } from '@/api/system'
 import router from "@/router";
 
-export interface Menu {
+interface QbRouter {
     id: number
+    icon: string
     label: string
     path: string
-    icon: string
-    meta?: any
+    component: string
     parentId: number
-    children?: Menu[]
+    meta?: any,
     isOpen?: number
+    children?: QbRouter[],
     query?: any,
     [key: string]: any
 }
 
-export interface TopMenu {
-    label: string
-    path: string
-    icon: string
-    meta: any
-    parentId: number
-    query?: any
-}
+export interface QbMenu extends QbRouter {}
+
+export interface TopMenu extends QbRouter {}
 
 interface SidebarStore {
-    menu: Menu[]
-    menus: Menu[]
+    menu: QbMenu[]
+    menus: QbMenu[]
     menuId: number[]
-    menuAll: Menu[]
+    menuAll: QbMenu[]
     topMenus: TopMenu[]
 }
 
@@ -50,11 +46,11 @@ export const useSidebarStore = defineStore('sidebarStore', {
             this.topMenus = value
             setStore({ name: 'topMenus', content: this.topMenus })
         },
-        SET_MENUS(value: Menu[]) {
+        SET_MENUS(value: QbMenu[]) {
             this.menus = value
             setStore({ name: 'menus', content: this.menus })
         },
-        SET_MENU(menu: Menu[]) {
+        SET_MENU(menu: QbMenu[]) {
             this.menu = menu
             setStore({ name: 'menu', content: this.menu })
         },
@@ -62,7 +58,7 @@ export const useSidebarStore = defineStore('sidebarStore', {
             this.menuId = menuId
             setStore({ name: 'menuId', content: this.menuId })
         },
-        SET_MENU_ALL(menuAll: Menu[]) {
+        SET_MENU_ALL(menuAll: QbMenu[]) {
             this.menuAll = menuAll
             setStore({ name: 'menuAll', content: this.menuAll })
         },
