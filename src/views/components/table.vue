@@ -1,7 +1,7 @@
 <template>
   <div class="">
     <el-card>
-      <el-table :data="computedData" stripe style="width: 100%" border max-height="500">
+      <el-table :data="computedData" stripe style="width: 100%" max-height="500">
           <el-table-column type="selection" width="55" />
           <el-table-column v-for="item in table" :key="item.id" :prop="item.prop" :label="item.label" :width="item.width">
               <template #default="scope">

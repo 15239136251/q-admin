@@ -42,6 +42,11 @@ const views: Array<RouteRecordRaw> = [
             name: '按钮权限',
             meta: { title: '按钮权限' },
             component: () => import('views/permission/index.vue')
+        }, {
+            path: 'menu',
+            name: '菜单规则',
+            meta: { title: '菜单规则' },
+            component: () => import('views/permission/menu.vue')
         }]
     },
     {

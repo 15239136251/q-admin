@@ -57,11 +57,28 @@ const getMenuList: () => QbMenu[] = () => {
     }, {
         id: 4,
         icon: 'Location',
-        label: '权限演示',
-        path: '/permission/index',
-        component: '@/views/permission/index.vue',
+        label: '权限管理',
+        path: '',
+        component: '',
         isOpen: 1,
-        parentId: 0
+        parentId: 0,
+        children: [{
+            id: 401,
+            icon: 'Location',
+            label: '权限演示',
+            path: '/permission/index',
+            component: '@/views/permission/index.vue',
+            isOpen: 1,
+            parentId: 4
+        }, {
+            id: 401,
+            icon: 'Location',
+            label: '菜单规则',
+            path: '/permission/menu',
+            component: '@/views/permission/menu.vue',
+            isOpen: 1,
+            parentId: 4
+        }]
     }, {
         id: 5,
         icon: 'Location',
@@ -79,6 +96,30 @@ const getMenuList: () => QbMenu[] = () => {
             path: '/components/table',
             component: '@/views/components/table.vue',
             icon: 'Menu',
+            isOpen: 1,
+            parentId: 5,
+        }, {
+            id: 502,
+            label: '表单',
+            path: '/components/form',
+            component: '@/views/components/form.vue',
+            icon: 'Menu',
+            isOpen: 1,
+            parentId: 5,
+        }, {
+            id: 503,
+            label: '弹窗',
+            path: '/components/dialog',
+            component: '@/views/components/dialog.vue',
+            icon: 'Menu',
+            isOpen: 1,
+            parentId: 5,
+        }, {
+            id: 504,
+            label: '图标',
+            path: '/components/icon',
+            component: '@/views/components/icon.vue',
+            icon: 'Grid',
             isOpen: 1,
             parentId: 5,
         }]

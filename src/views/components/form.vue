@@ -1,5 +1,5 @@
 <template>
-  <el-card>
+  <el-card class="w-1/2">
     <el-form ref="ruleFormRef" :model="ruleForm" :rules="rules" label-width="120px" class="demo-ruleForm" :size="formSize"
       status-icon>
       <el-form-item label="Activity name" prop="name">
