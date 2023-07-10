@@ -5,17 +5,26 @@
 </template>
 
 <script setup lang="ts">
-import { } from 'vue'
 import qbIcon from '@/components/Icon/index.vue'
 import { ElMessage } from 'element-plus';
-// import { } from 'vue3'
-
+import useClipboard from 'vue-clipboard3'
+const { toClipboard } = useClipboard()
+const copy = async (text: string) => {
+  try {
+    await toClipboard(text)
+    ElMessage({
+      type: 'success',
+      message: `复制成功: ${text}`
+    })
+  } catch (error) {
+    ElMessage({
+      type: 'error',
+      message: '复制失败'
+    })
+  }
+}
 const iconChange = (name: string) => {
-  ElMessage({
-    type: 'success',
-    message: name
-  })
-
+  copy(name)
 }
 </script>
 
