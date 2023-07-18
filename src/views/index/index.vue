@@ -1,6 +1,6 @@
 <template>
   <div class="index">
-    <el-row gutter="20">
+    <el-row :gutter="20">
       <el-col :span="24" class="mb-5">
         <el-card>
           <p class="flex justify-center align-center">

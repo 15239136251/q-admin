@@ -10,7 +10,7 @@
         <el-input v-model="search" class="w-64" placeholder="请输入信息"></el-input>
       </div>
     </div>
-    <el-row gutter="20">
+    <el-row :gutter="20">
       <el-col class="mb-5" :lg="6" :md="12" :sm="24" v-for="item in list" :key="item.id">
         <el-card class="flex flex-col justify-between cursor-pointer">
           <div class="flex align-center justify-between">

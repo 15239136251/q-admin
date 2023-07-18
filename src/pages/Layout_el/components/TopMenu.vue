@@ -4,7 +4,7 @@
             default-active="0"
             mode="horizontal"
         >
-            <el-menu-item v-for="(menu, index) in topMenus" :key="menu.label + index"  :index="index" @click="open(menu)">
+            <el-menu-item v-for="(menu, index) in topMenus" :key="menu.label + index"  :index="menu.label + index" @click="open(menu)">
                 <el-icon v-if="menu.icon.indexOf('icon-') != -1" >
                     <i class="iconfont" :class="menu.icon"></i>
                 </el-icon>

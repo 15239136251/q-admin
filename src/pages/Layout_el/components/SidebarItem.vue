@@ -13,7 +13,7 @@
           <template #title>{{ item[labelKey] }}</template>
         </el-menu-item>
         <!-- 有下级菜单 -->
-        <el-sub-menu v-else-if="!validatenull(item[childrenKey])" :index="item[pathKey]" :key="item.id">
+        <el-sub-menu v-else-if="!validatenull(item[childrenKey])" :index="item[pathKey]" :key="item[labelKey]">
           <template #title>
             <el-icon v-if="item[iconKey].indexOf('icon-') != -1">
               <i class="iconfont" :class="item[iconKey]"></i>

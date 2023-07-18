@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <el-row gutter="20" class="font-size-md">
+    <el-row :gutter="20" class="font-size-md">
       <el-col :lg="6" :md="12" :xs="24" class="mb-5">
         <el-card class="rounded-lg bg-blue-600 text-white cursor-pointer">
           <div class="">总收入</div>
@@ -122,7 +122,7 @@
         </el-card>
       </el-col>
     </el-row>
-    <el-row gutter="20" class="font-size-md">
+    <el-row :gutter="20" class="font-size-md">
       <el-col :lg="18" :md="24" class="mb-5">
         <el-card>
           <div ref="echarsDom1" style="width: 100%; height: 400px"></div>
@@ -134,7 +134,7 @@
         </el-card>
       </el-col>
     </el-row>
-    <el-row gutter="20" class="font-size-md">
+    <el-row :gutter="20" class="font-size-md">
       <el-col :lg="12" :md="24" class="mb-5">
         <el-card>
           <div class="h-10 flex align-center justify-between">
