@@ -73,7 +73,6 @@ const props = defineProps({
 })
 
 const { menu, screen, first, collapse } = toRefs(props)
-console.log("🚀 ~ file: sidebarItem.vue:101 ~ menu:", menu)
 
 const labelKey = computed(() => {
   return props.props.label || config.propsDefault.label
