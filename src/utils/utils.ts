@@ -39,3 +39,16 @@ export const identical: (obj1: Tag, obj2: Tag) => boolean = (obj1: Tag, obj2: Ta
 	  // 如果完全相同返回 true
 	  return true
 }
+
+// 改为树状结构
+export const getTreeList: (arr: any[], pid: number) => any[] = (arr, pid = 0) => {
+	const data: any[] = []
+	arr.forEach(item => {
+		if (item.parentId === pid) {
+			let _value = { ...item }
+			_value['children'] = getTreeList(arr, _value['id'])
+			data.push(_value)
+		}
+	})
+	return data
+}
