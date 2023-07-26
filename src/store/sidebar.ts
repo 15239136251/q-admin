@@ -3,7 +3,7 @@
 import { getStore, setStore } from "@/utils/storage";
 import { defineStore } from "pinia";
 import { getMenus, getTopMenu } from '@/api/system'
-import router from "@/router";
+import router, { generateRoute } from "@/router";
 
 interface QbRouter {
     id: number
@@ -13,9 +13,9 @@ interface QbRouter {
     component: string
     parentId: number
     meta?: any,
-    isOpen?: number
+    isTop?: number
     children?: QbRouter[],
-    query?: any,
+    redirect?: string,
     [key: string]: any
 }
 
@@ -71,6 +71,7 @@ export const useSidebarStore = defineStore('sidebarStore', {
             const result: any = await getMenus()
             console.log("🚀 ~ file: sidebar.ts:43 ~ getMenus ~ result:", result)
             this.SET_MENUS(result)
+            generateRoute(result)
         },
 
         async getTopMenu() {
