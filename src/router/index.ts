@@ -23,6 +23,10 @@ export const generateRoute = (menuList: QbMenu[]) => {
     const deepList = (list: QbMenu[], pPath?: string) => {
 
         list.forEach(item => {
+            if(router.hasRoute(item.label)) {
+                console.log('已注册')
+                return
+            }
             if (item?.path) {
                 const data: any = {
                     path: item.path,
