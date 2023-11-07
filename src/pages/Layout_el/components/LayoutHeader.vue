@@ -14,6 +14,15 @@
       </div>
     </div>
     <div class="top-bar__right">
+      <!-- 切换暗黑模式 -->
+      <div class="top-bar__item">
+        <el-switch
+          v-model="htmlType"
+          class="ml-2"
+          style="--el-switch-on-color: #2c2c2c; --el-switch-off-color: #fff"
+          @change="typeChange"
+        />
+      </div>
       <!-- 锁屏 -->
       <el-tooltip v-if="showLock" effect="dark" :content="t('navbar.lock')" placement="bottom">
         <div class="top-bar__item">
@@ -64,11 +73,13 @@ import topSearch from './TopSearch.vue'
 import useLocale from '@/utils/useLocale'
 import { useUserStore } from '@/store/user'
 import { useCommonStore } from '@/store/common'
+import { switchHtmlClass } from '@/utils/utils'
+import { ref } from 'vue'
 import router from '@/router';
 
 const commonStore = useCommonStore()
 const { SET_COLLAPSE } = commonStore
-
+const htmlType = ref(true)
 const showLock = true
 /* 语言切换 */
 const { i18n: { t }, currentLocale, changeLoacle } = useLocale()
@@ -78,6 +89,14 @@ const goHome = () => {
     path: '/dashboard/index'
   })
 }
+const typeChange = () => {
+  if (htmlType.value) {
+    switchHtmlClass('dark')
+  } else {
+    switchHtmlClass('white')
+  }
+}
+typeChange()
 </script>
 
 <style scoped>

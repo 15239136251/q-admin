@@ -52,3 +52,12 @@ export const getTreeList: (arr: any[], pid: number) => any[] = (arr, pid = 0) =>
 	})
 	return data
 }
+
+
+// 修改html的class类名
+export const switchHtmlClass = (type: string) => {
+	const html = document.querySelector('html');
+	if (html) {
+		html.className = type;
+	}
+}
