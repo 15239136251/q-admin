@@ -1,5 +1,6 @@
 import { QbMenu, TopMenu } from '@/store/sidebar'
 import { getTreeList } from '@/utils/utils'
+import sysData from './data/system.json'
 
 const menuRules = [
     {
@@ -277,7 +278,8 @@ const menuRules = [
         "is_top": "N",
         "create_name": "root",
         "modify_name": "root"
-    }
+    },
+    ...sysData
 ].map(menu => {
     return {
         id: menu.id,
